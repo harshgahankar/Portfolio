@@ -5,7 +5,7 @@ This portfolio showcases my projects, skills, experiences, milestones, achieveme
 
 ## Live Demo
 
-🔗 **Portfolio:** https://harsh-gahankar-portfolio.vercel.app
+🔗 **Portfolio:** https://harsh-gahankar.vercel.app
 
 ## About
 
