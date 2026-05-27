@@ -55,9 +55,6 @@ Featured projects include:
 - ClauseWise
 - SiteOps
 - FailLens AI
-- CoolOps
-- Physics VLab
-- Cyber Awareness Platform
 
 ### Skills
 Interactive skill bubbles with category filters.
