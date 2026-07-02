@@ -67,8 +67,17 @@ if (canvas && resetBtn) {
   }
 
   function getBounds() {
-    const maxX = window.innerWidth < 768 ? 900 : 1200;
-    const maxY = window.innerWidth < 768 ? 850 : 950;
+    let maxX, maxY;
+    if (window.innerWidth < 480) {
+      maxX = 600;
+      maxY = 550;
+    } else if (window.innerWidth < 768) {
+      maxX = 900;
+      maxY = 850;
+    } else {
+      maxX = 1200;
+      maxY = 950;
+    }
 
     return {
       minX: -maxX,
