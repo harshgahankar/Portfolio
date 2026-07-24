@@ -238,3 +238,153 @@ skillButtons.forEach(button => {
 
 /* default state */
 updateSkills("software");
+
+/* Bubble roaming animation */
+(function () {
+  var container = document.querySelector(".skills-bubbles-area");
+  var bubbles = document.querySelectorAll(".skill-bubble-new");
+  if (!container || !bubbles.length) return;
+
+  var state = {};
+  var animId = null;
+
+  function rand(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  function init() {
+    var rect = container.getBoundingClientRect();
+    var w = rect.width;
+    var h = rect.height;
+
+    bubbles.forEach(function (bubble) {
+      var cs = getComputedStyle(bubble);
+      var left = parseFloat(cs.left);
+      var top = parseFloat(cs.top);
+
+      if (isNaN(left) || (left === 0 && cs.right && cs.right !== "auto" && parseFloat(cs.right) > 0)) {
+        left = w - parseFloat(cs.right) - bubble.offsetWidth;
+      }
+      if (isNaN(top)) top = 0;
+
+      var size = bubble.offsetWidth || 110;
+      var speed = rand(0.3, 0.9);
+      var angle = rand(0, Math.PI * 2);
+
+      state[bubble.dataset.index || (bubble.dataset.index = Object.keys(state).length)] = {
+        x: left,
+        y: top,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        size: size,
+        el: bubble,
+        stopped: false,
+      };
+
+      bubble.style.left = left + "px";
+      bubble.style.top = top + "px";
+      bubble.style.right = "auto";
+    });
+  }
+
+  function tick() {
+    var rect = container.getBoundingClientRect();
+    var w = rect.width;
+    var h = rect.height;
+
+    var keys = Object.keys(state);
+
+    keys.forEach(function (key) {
+      var s = state[key];
+      var el = s.el;
+      if (s.stopped) return;
+      if (el.classList.contains("skill-hidden")) return;
+
+      s.x += s.vx;
+      s.y += s.vy;
+
+      if (s.x < 0) { s.x = 0; s.vx *= -1; }
+      if (s.x > w - s.size) { s.x = w - s.size; s.vx *= -1; }
+      if (s.y < 0) { s.y = 0; s.vy *= -1; }
+      if (s.y > h - s.size) { s.y = h - s.size; s.vy *= -1; }
+    });
+
+    for (var i = 0; i < keys.length; i++) {
+      for (var j = i + 1; j < keys.length; j++) {
+        var a = state[keys[i]];
+        var b = state[keys[j]];
+        if (a.el.classList.contains("skill-hidden") || b.el.classList.contains("skill-hidden")) continue;
+
+        var dx = a.x - b.x;
+        var dy = a.y - b.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        var minDist = (a.size + b.size) / 2;
+
+        if (dist < minDist && dist > 0) {
+          var overlap = minDist - dist;
+          var nx = dx / dist;
+          var ny = dy / dist;
+
+          a.x += nx * overlap / 2;
+          a.y += ny * overlap / 2;
+          b.x -= nx * overlap / 2;
+          b.y -= ny * overlap / 2;
+
+          var relVn = (a.vx - b.vx) * nx + (a.vy - b.vy) * ny;
+          if (relVn < 0) {
+            a.vx -= relVn * nx;
+            a.vy -= relVn * ny;
+            b.vx += relVn * nx;
+            b.vy += relVn * ny;
+          }
+        }
+      }
+    }
+
+    keys.forEach(function (key) {
+      var s = state[key];
+      if (s.el.classList.contains("skill-hidden")) return;
+      if (s.x < 0) s.x = 0;
+      if (s.x > w - s.size) s.x = w - s.size;
+      if (s.y < 0) s.y = 0;
+      if (s.y > h - s.size) s.y = h - s.size;
+      s.el.style.left = s.x + "px";
+      s.el.style.top = s.y + "px";
+    });
+
+    animId = requestAnimationFrame(tick);
+  }
+
+  bubbles.forEach(function (bubble) {
+    bubble.addEventListener("mouseenter", function () {
+      for (var key in state) {
+        if (state[key].el === bubble) {
+          state[key].stopped = true;
+          break;
+        }
+      }
+    });
+    bubble.addEventListener("mouseleave", function () {
+      for (var key in state) {
+        if (state[key].el === bubble) {
+          var s = state[key];
+          s.stopped = false;
+          var speed = rand(0.3, 0.9);
+          var angle = rand(0, Math.PI * 2);
+          s.vx = Math.cos(angle) * speed;
+          s.vy = Math.sin(angle) * speed;
+          break;
+        }
+      }
+    });
+  });
+
+  var resizeTimer;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(init, 200);
+  });
+
+  init();
+  tick();
+})();

@@ -1127,8 +1127,7 @@ a {
   justify-content: center;
   backdrop-filter: blur(6px);
   box-shadow: 0 18px 30px rgba(0,0,0,0.28);
-  transition: 0.3s ease;
-  animation: bubbleFloatNew 4.5s ease-in-out infinite;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .skill-bubble-new img {
@@ -1157,15 +1156,6 @@ a {
 
 .skill-bubble-new:hover span {
   opacity: 1;
-}
-
-@keyframes bubbleFloatNew {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-14px);
-  }
 }
 
 /* Hidden state for filtering */
@@ -1227,55 +1217,46 @@ a {
 .bubble-css {
   left: 30%;
   top: 20%;
-  animation-delay: 0.3s;
 }
 
 .bubble-js {
   right: 31%;
   top: 22%;
-  animation-delay: 0.6s;
 }
 
 .bubble-react {
   right: 14%;
   top: 27%;
-  animation-delay: 0.9s;
 }
 
 .bubble-tailwind {
   left: 8%;
   top: 55%;
-  animation-delay: 1.1s;
 }
 
 .bubble-sql {
   left: 25%;
   top: 66%;
-  animation-delay: 1.4s;
 }
 
 .bubble-python {
   left: 45%;
   top: 70%;
-  animation-delay: 1.7s;
 }
 
 .bubble-java {
   right: 28%;
   top: 65%;
-  animation-delay: 2s;
 }
 
 .bubble-flutter {
   right: 9%;
   top: 57%;
-  animation-delay: 2.3s;
 }
 
 .bubble-cpp {
   left: 47%;
   top: 28%;
-  animation-delay: 2.6s;
 }
 
 /* DESIGN POSITIONS */
@@ -1288,25 +1269,21 @@ a {
 .bubble-canva {
   right: 12%;
   top: 56%;
-  animation-delay: 0.4s;
 }
 
 .bubble-photoshop {
   left: 12%;
   top: 55%;
-  animation-delay: 0.8s;
 }
 
 .bubble-alight {
   left: 31%;
   top: 68%;
-  animation-delay: 1.2s;
 }
 
 .bubble-kinemaster {
   left: 18%;
   top: 26%;
-  animation-delay: 1.5s;
 }
 
 .skill-bubble-new span {
@@ -1970,38 +1947,20 @@ a {
 .milestone-feature-card,
 .milestone-small-card,
 .milestone-wide-card {
-  border: 2px solid transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 14px !important;
 
-  background:
-    linear-gradient(#111111, #111111) padding-box,
-    linear-gradient(
-      135deg,
-      #1a1a1a 0%,
-      #ff7417 35%,
-      #7a2d00 55%,
-      #ff7417 75%,
-      #0b0b0b 100%
-    ) border-box !important;
+  background: rgba(255, 255, 255, 0.06) !important;
 
-  background-size: 100% 100%, 220% 220% !important;
-  animation: orangeBorderFlow 5s ease infinite;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
 
   box-shadow:
-    0 0 18px rgba(255, 116, 23, 0.14),
-    inset 0 0 18px rgba(255, 116, 23, 0.03);
+    0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
 .milestone-stat-box {
-  background:
-    linear-gradient(#101010, #101010) padding-box,
-    linear-gradient(
-      135deg,
-      #0b0b0b 0%,
-      #ff7417 40%,
-      #7a2d00 60%,
-      #ff7417 80%,
-      #111111 100%
-    ) border-box !important;
+  background: rgba(255, 255, 255, 0.06) !important;
 }
 
 .milestone-stat-box:hover,
@@ -2009,24 +1968,10 @@ a {
 .milestone-small-card:hover,
 .milestone-wide-card:hover {
   box-shadow:
-    0 0 24px rgba(255, 116, 23, 0.28),
-    0 0 45px rgba(255, 116, 23, 0.10),
-    inset 0 0 20px rgba(255, 116, 23, 0.04) !important;
-}
-
-/* Orange-black animated border movement */
-@keyframes orangeBorderFlow {
-  0% {
-    background-position: 0% 50%, 0% 50%;
-  }
-
-  50% {
-    background-position: 0% 50%, 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%, 0% 50%;
-  }
+    0 8px 40px rgba(0, 0, 0, 0.45);
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+  border-color: rgba(255, 255, 255, 0.25) !important;
 }
 
 /* ============================= */
