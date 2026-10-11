@@ -7,9 +7,20 @@
   <title>Harsh Gahankar | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="assets/HG%20logo.png">
+  <noscript><style>.splash { display: none !important; }</style></noscript>
 </head>
 
 <body>
+
+  <!-- SPLASH -->
+  <div class="splash" id="splash" aria-hidden="true">
+    <div class="splash-inner">
+      <div class="splash-word">
+        <span style="--i:0">H</span><span style="--i:1">A</span><span style="--i:2">R</span><span style="--i:3">S</span><span style="--i:4">H</span>
+      </div>
+      <div class="splash-bar"><span></span></div>
+    </div>
+  </div>
 
   <!-- NAVBAR -->
   <header class="navbar">
@@ -245,229 +256,42 @@
     </div>
   </div>
 
-  <!-- PROJECTS SECTION -->
-  <section class="projects-horizontal-section" id="projects">
+  <!-- PROJECTS SECTION — CONSTELLATION -->
+  <section class="constellation-section" id="projects">
+    <div class="const-grid-bg" aria-hidden="true"></div>
 
-    <div class="projects-sticky">
+    <header class="const-header">
+      <p class="const-eyebrow"><span></span>MY WORK — SELECTED PROJECTS</p>
+      <h2 class="const-title">PROJECT<br /><em>CONSTELLATION</em></h2>
+      <p class="const-sub">A curated universe of projects connecting design, code, and AI.</p>
+    </header>
 
-      <div class="projects-heading-wrap">
-        <h2 class="projects-big-title">PROJECTS</h2>
-      </div>
-
-      <div class="projects-horizontal-window">
-        <div class="projects-horizontal-track" id="projectsTrack">
-
-          <!-- CLAUSEWISE -->
-          <article class="project-listing-card">
-            <img class="project-listing-card-img" src="assets/Clausewise.png" alt="ClauseWise — AI-powered contract risk analysis platform preview" loading="lazy" />
-            <div class="project-listing-card-gradient"></div>
-            <span class="project-listing-card-badge">✦ Featured</span>
-            <div class="project-listing-card-body">
-              <p class="project-listing-card-category">AI Contract Analysis</p>
-              <h3 class="project-listing-card-title">ClauseWise</h3>
-              <p class="project-listing-card-desc">AI-powered contract risk analysis platform</p>
-              <div class="project-listing-card-actions">
-                <a class="project-listing-btn project-listing-btn-visit" href="https://clause-wise-org.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Site <span>→</span></a>
-                <a class="project-listing-btn project-listing-btn-repo" href="https://github.com/harshgahankar/ClauseWise" target="_blank" rel="noopener noreferrer">Go to Repo <span>↗</span></a>
-              </div>
-              <div class="project-listing-card-meta">
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>Web</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>AI</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Contracts</span>
-              </div>
-              <div class="project-listing-card-divider"></div>
-              <div class="project-listing-card-footer">
-                <span>By • Harsh</span>
-                <span>2026</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- SITEOPS -->
-          <article class="project-listing-card">
-            <img class="project-listing-card-img" src="assets/siteops.png" alt="SiteOps — smart construction site management system preview" loading="lazy" />
-            <div class="project-listing-card-gradient"></div>
-            <span class="project-listing-card-badge">✦ Featured</span>
-            <div class="project-listing-card-body">
-              <p class="project-listing-card-category">Management Application</p>
-              <h3 class="project-listing-card-title">SiteOps</h3>
-              <p class="project-listing-card-desc">Smart construction site management system</p>
-              <div class="project-listing-card-actions">
-                <a class="project-listing-btn project-listing-btn-visit" href="https://site-ops-web.vercel.app/">Visit Site <span>→</span></a>
-                <a class="project-listing-btn project-listing-btn-repo" href="https://github.com/harshgahankar/SiteOps" target="_blank" rel="noopener noreferrer">Go to Repo <span>↗</span></a>
-              </div>
-              <div class="project-listing-card-meta">
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>APP</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Geofencing</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>IoT</span>
-              </div>
-              <div class="project-listing-card-divider"></div>
-              <div class="project-listing-card-footer">
-                <span>By • Harsh</span>
-                <span>2026</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- FAILLENS AI -->
-          <article class="project-listing-card">
-            <img class="project-listing-card-img" src="assets/faillens.png" alt="Faillens AI — API failure detection and debugging agent preview" loading="lazy" />
-            <div class="project-listing-card-gradient"></div>
-            <span class="project-listing-card-badge">✦ Featured</span>
-            <div class="project-listing-card-body">
-              <p class="project-listing-card-category">AI Debugging Agent</p>
-              <h3 class="project-listing-card-title">Faillens AI</h3>
-              <p class="project-listing-card-desc">API failure detection & debugging agent</p>
-              <div class="project-listing-card-actions">
-                <a class="project-listing-btn project-listing-btn-visit" href="https://faillensai.onrender.com/" target="_blank" rel="noopener noreferrer">Visit Site <span>→</span></a>
-                <a class="project-listing-btn project-listing-btn-repo" href="https://github.com/DevSignerOmkar/faillensai" target="_blank" rel="noopener noreferrer">Go to Repo <span>↗</span></a>
-              </div>
-              <div class="project-listing-card-meta">
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>API</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>AI</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 2 1.88 1.88"/><path d="M14.12 3.88 16 2"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/><path d="M12 20v-9"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></svg>Debugging</span>
-              </div>
-              <div class="project-listing-card-divider"></div>
-              <div class="project-listing-card-footer">
-                <span>By • Harsh</span>
-                <span>2026</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- SKILLORBIT -->
-          <article class="project-listing-card">
-            <img class="project-listing-card-img" src="assets/SkillOrbit.png" alt="SkillOrbit — AI recruitment platform preview" loading="lazy" />
-            <div class="project-listing-card-gradient"></div>
-            <span class="project-listing-card-badge">✦ Featured</span>
-            <div class="project-listing-card-body">
-              <p class="project-listing-card-category">AI Recruitment Platform</p>
-              <h3 class="project-listing-card-title">SkillOrbit</h3>
-              <p class="project-listing-card-desc">AI recruitment platform that ranks and explains candidate–job fit</p>
-              <div class="project-listing-card-actions">
-                <a class="project-listing-btn project-listing-btn-visit" href="https://skill-oribit-2.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Site <span>→</span></a>
-                <a class="project-listing-btn project-listing-btn-repo" href="https://github.com/hansagusaiwal/SkillOrbit" target="_blank" rel="noopener noreferrer">Go to Repo <span>↗</span></a>
-              </div>
-              <div class="project-listing-card-meta">
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>AI/ML</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>Vector Search</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Recruitment</span>
-              </div>
-              <div class="project-listing-card-divider"></div>
-              <div class="project-listing-card-footer">
-                <span>By • Harsh</span>
-                <span>2026</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- THERMACITY -->
-          <article class="project-listing-card">
-            <img class="project-listing-card-img" src="assets/ThermaCity.png" alt="ThermaCity — urban heat island analysis tool for Mumbai preview" loading="lazy" />
-            <div class="project-listing-card-gradient"></div>
-            <span class="project-listing-card-badge">✦ Featured</span>
-            <div class="project-listing-card-body">
-              <p class="project-listing-card-category">Climate Analytics</p>
-              <h3 class="project-listing-card-title">ThermaCity</h3>
-              <p class="project-listing-card-desc">Urban heat island analysis & mitigation planning tool for Mumbai, India</p>
-              <div class="project-listing-card-actions">
-                <a class="project-listing-btn project-listing-btn-visit" href="https://heat-mitigation.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Site <span>→</span></a>
-                <a class="project-listing-btn project-listing-btn-repo" href="https://github.com/srushtidedaniya24-web/Heat-Mitigation" target="_blank" rel="noopener noreferrer">Go to Repo <span>↗</span></a>
-              </div>
-              <div class="project-listing-card-meta">
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>AI/ML</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>GIS</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>Thermal</span>
-              </div>
-              <div class="project-listing-card-divider"></div>
-              <div class="project-listing-card-footer">
-                <span>By • Harsh</span>
-                <span>2026</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- SKILLO -->
-          <article class="project-listing-card">
-            <img class="project-listing-card-img" src="assets/Skillo.png" alt="Skillo — AI-powered intelligent assessment and academic integrity platform preview" loading="lazy" />
-            <div class="project-listing-card-gradient"></div>
-            <span class="project-listing-card-badge">✦ Featured</span>
-            <div class="project-listing-card-body">
-              <p class="project-listing-card-category">AI Assessment Platform</p>
-              <h3 class="project-listing-card-title">Skillo</h3>
-              <p class="project-listing-card-desc">AI-powered intelligent assessment & academic integrity platform</p>
-              <div class="project-listing-card-actions">
-                <a class="project-listing-btn project-listing-btn-visit" href="#">Visit Site <span>→</span></a>
-                <a class="project-listing-btn project-listing-btn-repo" href="https://github.com/RutujaaaPathak/Skilio" target="_blank" rel="noopener noreferrer">Go to Repo <span>↗</span></a>
-              </div>
-              <div class="project-listing-card-meta">
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>AI/ML</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Integrity</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Assessment</span>
-              </div>
-              <div class="project-listing-card-divider"></div>
-              <div class="project-listing-card-footer">
-                <span>By • Harsh</span>
-                <span>2026</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- CyberResQ -->
-          <article class="project-listing-card">
-            <img class="project-listing-card-img" src="assets/CyberResQ.png" alt="CyberResQ — Cyber Security Awareness Platform preview" loading="lazy" />
-            <div class="project-listing-card-gradient"></div>
-            <span class="project-listing-card-badge">✦ Featured</span>
-            <div class="project-listing-card-body">
-              <p class="project-listing-card-category">Cyber Security Awareness Platform</p>
-              <h3 class="project-listing-card-title">CyberResQ</h3>
-              <p class="project-listing-card-desc">platform that educates users about cyber threats, crimes, and effective prevention measures.</p>
-              <div class="project-listing-card-actions">
-                <a class="project-listing-btn project-listing-btn-visit" href="https://cyberresq.onrender.com/">Visit Site <span>→</span></a>
-                <a class="project-listing-btn project-listing-btn-repo" href="https://github.com/DevSignerOmkar/CyberResQ" target="_blank" rel="noopener noreferrer">Go to Repo <span>↗</span></a>
-              </div>
-              <div class="project-listing-card-meta">
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>Web</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Cyber Safety</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Awareness</span>
-              </div>
-              <div class="project-listing-card-divider"></div>
-              <div class="project-listing-card-footer">
-                <span>By • Harsh</span>
-                <span>2026</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-listing-card">
-            <img class="project-listing-card-img" src="assets/CivicEye.png" alt="Civic Eye - Real-Time Computer Vision for Public Safety " loading="lazy" />
-            <div class="project-listing-card-gradient"></div>
-            <span class="project-listing-card-badge">✦ Featured</span>
-            <div class="project-listing-card-body">
-              <p class="project-listing-card-category">Real-Time Computer Vision for Public Safety </p>
-              <h3 class="project-listing-card-title">Civic Eye</h3>
-              <p class="project-listing-card-desc">CivicEye uses real-time AI vision to detect and classify public safety incidents, enabling faster and more reliable emergency response.</p>
-              <div class="project-listing-card-actions">
-                <a class="project-listing-btn project-listing-btn-repo" href="https://github.com/harshgahankar/Civic-Eye" target="_blank" rel="noopener noreferrer">Go to Repo <span>↗</span></a>
-              </div>
-              <div class="project-listing-card-meta">
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>OPEN CV</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>YOLO</span>
-                <span class="project-listing-card-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>real time</span>
-              </div>
-              <div class="project-listing-card-divider"></div>
-              <div class="project-listing-card-footer">
-                <span>By • Harsh</span>
-                <span>2026</span>
-              </div>
-            </div>
-          </article>
-
+    <div class="const-layout">
+      <div class="const-canvas-wrap">
+        <div class="const-canvas" id="constCanvas">
+          <div class="const-stars" aria-hidden="true"></div>
+          <div class="const-world" id="constWorld">
+            <svg class="const-svg" id="constSvg" viewBox="0 0 1000 640" preserveAspectRatio="none" aria-hidden="true"></svg>
+            <div class="const-nodes" id="constNodes"></div>
+          </div>
+        </div>
+        <div class="const-canvas-foot">
+          <p class="const-hint">✳ Explore the constellation — select a project to discover more.</p>
+          <button class="const-reset" id="constReset" type="button" hidden>Reset view</button>
         </div>
       </div>
 
+      <aside class="const-panel" aria-label="Selected project details">
+        <div class="const-panel-top">
+          <span class="const-count" id="constCount">01 / 08</span>
+          <div class="const-nav">
+            <button id="constPrev" type="button" aria-label="Previous project">‹</button>
+            <button id="constNext" type="button" aria-label="Next project">›</button>
+          </div>
+        </div>
+        <div class="const-panel-body" id="constPanelBody" aria-live="polite"></div>
+      </aside>
     </div>
-
   </section>
 
   <div class="orange-marquee">
@@ -590,362 +414,180 @@
       EXP<span>ERI</span>ENCE
     </h2>
 
-    <div class="experience-zigzag-timeline">
-      <div class="experience-zigzag-row">
-        <div class="exp-image-card">
-          <img src="assets/Aether2026.jpeg" alt="36hrs Hackathon">
+    <p class="exp-sec-sub">5 PODIUMS · 12 EVENTS AND COUNTING</p>
+
+    <h3 class="exp-group-title"><span>🏆</span> Podiums</h3>
+
+    <div class="podium-grid">
+
+      <article class="podium-card podium-wide rank-1">
+        <div class="podium-photo">
+          <img src="assets/Eureka2026.jpeg" alt="Eureka 2026" loading="lazy" />
+          <span class="podium-rank">🏆 1ST PRIZE</span>
         </div>
-
-        <div class="exp-center-dot">&lt;&gt;</div>
-
-        <div class="exp-text-card">
-          <p class="exp-date">30 SEPT - 1 OCT 2026</p>
-          <h3>Aether HackConquest Hackathon</h3>
-          <p class="exp-place">THAKUR COLLEGE OF ENGINEERING AND TECHNOLOGY (TCET)</p>
-
-          <p class="exp-desc">
-            Participated in a 36-hour Virtual Hackathon and built a Real-Time Computer Vision for Public Safety.
-          </p>
-
-          <ul>
-            <li>1st Runner up</li>
-            <li>Tested on Real Dataset and Real Camera Feed</li>
-          </ul>
-
-          <div class="exp-tags">
-            <span>Hackathon</span>
-            <span>OPEN CV</span>
-            <span>36hrs</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="experience-zigzag-row">
-        <div class="exp-text-card">
-          <p class="exp-date">25 AUGUST 2026</p>
+        <div class="podium-body">
+          <p class="podium-date">25 AUG 2026 · SAKEC</p>
           <h3>EUREKA 2026</h3>
-          <p class="exp-place">SAKEC</p>
-
-          <p class="exp-desc">
-            Winner of Sakec Eureka 2026. AIRA a compact, plug-and-play air purification and cooling system designed to make cleaner and more comfortable air more accessible and convenient
-          </p>
-
-          <ul>
-            <li>1st prize</li>
-            <li>Showcased AIRA</li>
-            <li>Pitched in front of Investors</li>
-          </ul>
-
-          <div class="exp-tags">
-            <span>Competition</span>
-            <span>Start-Up</span>
-            <span>Innovation</span>
-          </div>
+          <p class="podium-desc">Won with AIRA — a compact, plug-and-play air purification and cooling system. Showcased it and pitched to investors.</p>
+          <div class="podium-tags"><span>Competition</span><span>Start-Up</span><span>Innovation</span></div>
         </div>
+      </article>
 
-        <div class="exp-center-dot">&lt;&gt;</div>
-
-        <div class="exp-image-card">
-          <img src="assets/Eureka2026.jpeg" alt="Eureka 2026">
+      <article class="podium-card podium-wide rank-1">
+        <div class="podium-photo">
+          <img src="assets/Tantavihar26.jpeg" alt="Tantravihar 2026" loading="lazy" />
+          <span class="podium-rank">🏆 1ST PRIZE</span>
         </div>
-      </div>
-
-       <!-- 1 -->
-      <div class="experience-zigzag-row">
-        <div class="exp-image-card">
-          <img src="assets/HackMatrix.jpg" alt="UI UX Design Challenge" class="hackmatrix-img">
-        </div>
-
-        <div class="exp-center-dot">&lt;&gt;</div>
-
-        <div class="exp-text-card">
-          <p class="exp-date">9 AUGUST 2026</p>
-          <h3>HACKMATRIX IEEE 2026</h3>
-          <p class="exp-place">MIT GWALIOR</p>
-
-          <p class="exp-desc">
-            Intense 24hr hackathon , build an HealthCare application for Rural Areas of India
-          </p>
-
-          <ul>
-            <li>Built an HealthCare App</li>
-            <li>Consulted with Real Doctors</li>
-          </ul>
-
-          <div class="exp-tags">
-            <span>Hackathon</span>
-            <span>HealthCare</span>
-            <span>AI/ML</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 1 -->
-      <div class="experience-zigzag-row">
-        <div class="exp-text-card">
-          <p class="exp-date">1-2 MAY 2026</p>
-          <h3>MICROSOFT X SHIKUNJ<br>AGENTIC AI HACKATHON</h3>
-          <p class="exp-place">JIT INDORE</p>
-
-          <p class="exp-desc">
-            Participated in a 30-hour hackathon with a team of 4 and built a CyberSecurity awareness platform.
-          </p>
-
-          <ul>
-            <li>Selected among 500+ teams</li>
-            <li>Secured a spot in Top 10 teams</li>
-            <li>Qualified for the pitching round</li>
-          </ul>
-
-          <div class="exp-tags">
-            <span>Hackathon</span>
-            <span>Agentic AI</span>
-            <span>Microsoft</span>
-          </div>
-        </div>
-
-        <div class="exp-center-dot">&lt;&gt;</div>
-
-        <div class="exp-image-card">
-          <img src="assets/Mircrosoft26.jpeg" alt="Microsoft x Shikunj Hackathon">
-        </div>
-      </div>
-
-      <!-- 2 -->
-      <div class="experience-zigzag-row">
-        <div class="exp-image-card">
-          <img src="assets/Pixel26.jpeg" alt="UI UX Design Challenge">
-        </div>
-
-        <div class="exp-center-dot">&lt;&gt;</div>
-
-        <div class="exp-text-card">
-          <p class="exp-date">22 APRIL 2026</p>
-          <h3>UI/UX SOLO DESIGN<br>CHALLENGE II PIXELS 2026</h3>
-          <p class="exp-place">SIES COLLEGE OF MANAGEMENT STUDIES</p>
-
-          <p class="exp-desc">
-            Participated in a 2-hour solo UI/UX hackathon and built a response app for emergency situations.
-          </p>
-
-          <ul>
-            <li>Built an app UI from scratch</li>
-            <li>Secured 2nd position among 30 participants</li>
-          </ul>
-
-          <div class="exp-tags">
-            <span>Hackathon</span>
-            <span>UI/UX</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3 -->
-      <div class="experience-zigzag-row">
-        <div class="exp-text-card">
-          <p class="exp-date">19 APRIL 2026</p>
-          <h3>IDEATHON 2026</h3>
-          <p class="exp-place">FR. AGNEL MULTIPURPOSE SCHOOL AND JR. COLLEGE</p>
-
-          <p class="exp-desc">
-            Participated in a project showcase competition in the sustainable category.
-          </p>
-
-          <ul>
-            <li>Presented a sustainability-focused solution</li>
-            <li>Secured 2nd prize with amount worth 1K</li>
-          </ul>
-
-          <div class="exp-tags">
-            <span>Showcase</span>
-            <span>Hardware</span>
-            <span>Sustainable</span>
-          </div>
-        </div>
-
-        <div class="exp-center-dot">&lt;&gt;</div>
-
-        <div class="exp-image-card">
-          <img src="assets/Ideathon26.jpeg" alt="Ideathon 2026">
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="experience-zigzag-row">
-        <div class="exp-image-card">
-          <img src="assets/Tantavihar26.jpeg" alt="Tantravihar 2026">
-        </div>
-
-        <div class="exp-center-dot">&lt;&gt;</div>
-
-        <div class="exp-text-card">
-          <p class="exp-date">11 APRIL 2026</p>
+        <div class="podium-body">
+          <p class="podium-date">11 APR 2026 · VIDYALANKAR INSTITUTE OF TECHNOLOGY</p>
           <h3>TANTRAVIHAR 2026</h3>
-          <p class="exp-place">VIDYALANKAR INSTITUTE OF TECHNOLOGY</p>
+          <p class="podium-desc">1st prize in the sustainable category for a project showcase build.</p>
+          <div class="podium-tags"><span>Showcase</span><span>Hardware</span><span>Sustainable</span></div>
+        </div>
+      </article>
 
-          <p class="exp-desc">
-            Another project showcase competition in the sustainable category.
-          </p>
+      <article class="podium-card rank-2">
+        <div class="podium-photo">
+          <img src="assets/Aether2026.jpeg" alt="Aether HackConquest 2026" loading="lazy" />
+          <span class="podium-rank">🥈 RUNNER-UP</span>
+        </div>
+        <div class="podium-body">
+          <p class="podium-date">30 SEPT – 1 OCT 2026 · TCET</p>
+          <h3>AETHER HACKCONQUEST</h3>
+          <p class="podium-desc">1st Runner-up at a 36-hour virtual hackathon — real-time computer vision for public safety, tested on real datasets and live camera feeds.</p>
+          <div class="podium-tags"><span>Hackathon</span><span>OpenCV</span><span>36hrs</span></div>
+        </div>
+      </article>
 
-          <ul>
-            <li>Secured 1st prize in the sustainable category</li>
-          </ul>
+      <article class="podium-card rank-2">
+        <div class="podium-photo">
+          <img src="assets/Pixel26.jpeg" alt="Pixels UI UX Challenge 2026" loading="lazy" />
+          <span class="podium-rank">🥈 2ND PLACE</span>
+        </div>
+        <div class="podium-body">
+          <p class="podium-date">22 APR 2026 · SIES</p>
+          <h3>PIXELS UI/UX 2026</h3>
+          <p class="podium-desc">2nd of 30 in a 2-hour solo design sprint — an emergency-response app UI built from scratch.</p>
+          <div class="podium-tags"><span>Hackathon</span><span>UI/UX</span><span>Solo</span></div>
+        </div>
+      </article>
 
-          <div class="exp-tags">
-            <span>Showcase</span>
-            <span>Hardware</span>
-            <span>Sustainable</span>
+      <article class="podium-card rank-2">
+        <div class="podium-photo">
+          <img src="assets/Ideathon26.jpeg" alt="Ideathon 2026" loading="lazy" />
+          <span class="podium-rank">🥈 2ND PRIZE</span>
+        </div>
+        <div class="podium-body">
+          <p class="podium-date">19 APR 2026 · FR. AGNEL</p>
+          <h3>IDEATHON 2026</h3>
+          <p class="podium-desc">2nd prize (₹1K) for a sustainability-focused solution at a project showcase competition.</p>
+          <div class="podium-tags"><span>Showcase</span><span>Hardware</span><span>Sustainable</span></div>
+        </div>
+      </article>
+
+    </div>
+
+    <h3 class="exp-group-title"><span>🗂</span> The Archive <span class="arch-count" id="archCount">— SHOWING 7 OF 7</span></h3>
+
+    <div class="arch-filters">
+      <button class="arch-filter-btn active" data-filter="all" type="button">ALL <b>7</b></button>
+      <button class="arch-filter-btn" data-filter="hackathon" type="button">HACKATHONS <b>5</b></button>
+      <button class="arch-filter-btn" data-filter="contest" type="button">COMPETITIONS <b>2</b></button>
+    </div>
+
+    <div class="arch-list">
+
+      <div class="arch-row" data-cat="hackathon">
+        <img class="arch-thumb" src="assets/HackMatrix.jpg" alt="HackMatrix 2026" loading="lazy" />
+        <div class="arch-main">
+          <div class="arch-top">
+            <span class="arch-date">9 AUG 2026</span>
           </div>
+          <h3>HACKMATRIX IEEE 2026</h3>
+          <p class="arch-place">MIT GWALIOR</p>
+          <p class="arch-desc">Intense 24-hr hackathon — a healthcare app for rural India, shaped with input from real doctors.</p>
+          <div class="arch-tags"><span>Hackathon</span><span>HealthCare</span><span>AI/ML</span></div>
         </div>
       </div>
 
-      <!-- 5 -->
-      <div class="experience-zigzag-row">
-        <div class="exp-text-card">
-          <p class="exp-date">NOV25 to JUNE26</p>
+      <div class="arch-row" data-cat="hackathon">
+        <img class="arch-thumb" src="assets/Mircrosoft26.jpeg" alt="Microsoft x Shikunj Hackathon" loading="lazy" />
+        <div class="arch-main">
+          <div class="arch-top">
+            <span class="arch-date">1–2 MAY 2026</span>
+            <span class="arch-badge">TOP 10 · 500+ TEAMS</span>
+          </div>
+          <h3>MICROSOFT X SHIKUNJ AGENTIC AI HACKATHON</h3>
+          <p class="arch-place">JIT INDORE</p>
+          <p class="arch-desc">30-hour hackathon with a team of 4 — a cybersecurity awareness platform. Top 10 of 500+ teams, qualified for the pitching round.</p>
+          <div class="arch-tags"><span>Hackathon</span><span>Agentic AI</span><span>Microsoft</span></div>
+        </div>
+      </div>
+
+      <div class="arch-row" data-cat="contest">
+        <img class="arch-thumb" src="assets/SDI.jpeg" alt="Solar Decathlon India 2026" loading="lazy" />
+        <div class="arch-main">
+          <div class="arch-top">
+            <span class="arch-date">NOV 25 – JUN 26</span>
+            <span class="arch-badge">₹25K GRANT</span>
+          </div>
           <h3>SOLAR DECATHLON INDIA (SDI)</h3>
-          <p class="exp-place"></p>
-
-          <p class="exp-desc">
-            Participated in SDI 2026 in Residential Cooling Retrofit (RCR) Category as a team of 13 members from
-            multiple departments
-          </p>
-
-          <ul>
-            <li>Completed D1 and qualified for D2 by winning a grant of 25k Rs</li>
-            <li>Build a Compact thermoelectric cooling & air purification system</li>
-          </ul>
-
-          <div class="exp-tags">
-            <span>Competition</span>
-            <span>SDI</span>
-            <span>Sustainable</span>
-          </div>
-        </div>
-
-        <div class="exp-center-dot">&lt;&gt;</div>
-
-        <div class="exp-image-card">
-          <img src="assets/SDI.jpeg" alt="Solar Decathlon India 2026">
+          <p class="arch-place">RESIDENTIAL COOLING RETROFIT · TEAM OF 13</p>
+          <p class="arch-desc">Cleared D1 and qualified for D2 — a compact thermoelectric cooling & air purification system.</p>
+          <div class="arch-tags"><span>Competition</span><span>SDI</span><span>Sustainable</span></div>
         </div>
       </div>
 
-      <!-- 6 -->
-      <div class="experience-zigzag-row">
-        <div class="exp-image-card">
-          <img src="assets/Hackfusion26.jpeg" alt="HackFusion 2026">
-        </div>
-
-        <div class="exp-center-dot">&lt;&gt;</div>
-
-        <div class="exp-text-card">
-          <p class="exp-date">8 FEB 2026</p>
+      <div class="arch-row" data-cat="hackathon">
+        <img class="arch-thumb" src="assets/Hackfusion26.jpeg" alt="HackFusion 2026" loading="lazy" />
+        <div class="arch-main">
+          <div class="arch-top">
+            <span class="arch-date">8 FEB 2026</span>
+            <span class="arch-badge">TOP TEAMS</span>
+          </div>
           <h3>HACKFUSION 2026</h3>
-          <p class="exp-place">SPIT X UMIT</p>
-
-          <p class="exp-desc">
-            Qualified for HackFusion 2026 and built SiteOps, a smart construction site management system.
-          </p>
-
-          <ul>
-            <li>Qualified among top teams</li>
-            <li>Built worker and contractor dashboards</li>
-            <li>Used geofencing, face recognition, and wage tracking</li>
-          </ul>
-
-          <div class="exp-tags">
-            <span>Hackathon</span>
-            <span>SiteOps</span>
-            <span>Top 50</span>
-          </div>
+          <p class="arch-place">SPIT X UMIT</p>
+          <p class="arch-desc">Built SiteOps — smart construction-site management with geofencing, face recognition and wage tracking.</p>
+          <div class="arch-tags"><span>Hackathon</span><span>SiteOps</span><span>IoT</span></div>
         </div>
       </div>
 
-      <!-- 7 -->
-      <div class="experience-zigzag-row">
-        <div class="exp-text-card">
-          <p class="exp-date">17 JAN 2026</p>
+      <div class="arch-row" data-cat="hackathon">
+        <img class="arch-thumb" src="assets/Technova26.jpeg" alt="Technova 2026" loading="lazy" />
+        <div class="arch-main">
+          <div class="arch-top">
+            <span class="arch-date">17 JAN 2026</span>
+          </div>
           <h3>TECHNOVA 2026</h3>
-          <p class="exp-place">ST Xavier’s Technical Institute</p>
-
-          <p class="exp-desc">
-            Intense 24-hour hackathon , in which we built a Women’s safety SoS application . First ever App building
-            experience
-          </p>
-
-          <ul>
-            <li>Built an app prototype in 24 hours</li>
-          </ul>
-
-          <div class="exp-tags">
-            <span>Hackathon</span>
-            <span>Women's Safety</span>
-            <span>App Development</span>
-          </div>
-        </div>
-
-        <div class="exp-center-dot">&lt;&gt;</div>
-
-        <div class="exp-image-card">
-          <img src="assets/Technova26.jpeg" alt="Technova 2026">
+          <p class="arch-place">ST XAVIER'S TECHNICAL INSTITUTE</p>
+          <p class="arch-desc">24-hour hackathon — a women's-safety SoS app prototype. First ever app build.</p>
+          <div class="arch-tags"><span>Hackathon</span><span>Women's Safety</span><span>App</span></div>
         </div>
       </div>
 
-      <!-- 8 -->
-      <div class="experience-zigzag-row">
-        <div class="exp-image-card">
-          <img src="assets/Avhishkar25.jpeg" alt="Avhishkar 2025">
-        </div>
-
-        <div class="exp-center-dot">&lt;&gt;</div>
-
-        <div class="exp-text-card">
-          <p class="exp-date">9 DEC 2025</p>
+      <div class="arch-row" data-cat="contest">
+        <img class="arch-thumb" src="assets/Avhishkar25.jpeg" alt="Avhishkar 2025" loading="lazy" />
+        <div class="arch-main">
+          <div class="arch-top">
+            <span class="arch-date">9 DEC 2025</span>
+            <span class="arch-badge">PITCHING ROUND</span>
+          </div>
           <h3>AVHISHKAR 2025</h3>
-          <p class="exp-place">A. P. Shah Institute of Technology</p>
-
-          <p class="exp-desc">
-            Project showcase in Agriculture and Animal Husbandry Category , build a Prototype for a Gamified AI platform
-            to Promote Sustainable Farming Practices Across India
-          </p>
-
-          <ul>
-            <li>Got selected for the Pitching Round </li>
-            <li>Presented a working prototype to a panel of judges</li>
-          </ul>
-
-          <div class="exp-tags">
-            <span>Competition</span>
-            <span>Sustainable</span>
-            <span>AI</span>
-          </div>
+          <p class="arch-place">A. P. SHAH INSTITUTE OF TECHNOLOGY</p>
+          <p class="arch-desc">Gamified-AI platform for sustainable farming (Agriculture & Animal Husbandry). Selected to pitch to judges.</p>
+          <div class="arch-tags"><span>Showcase</span><span>Sustainable</span><span>AI</span></div>
         </div>
       </div>
 
-      <!-- 7 -->
-      <div class="experience-zigzag-row">
-        <div class="exp-text-card">
-          <p class="exp-date">28 SEPT 2025</p>
-          <h3>SMART INDIA HACKATHON (SIH) 2025</h3>
-          <p class="exp-place"></p>
-
-          <p class="exp-desc">
-            Built a Prototype Application , Gamified AI platform to Promote Sustainable Farming Practices Across India
-
-          <ul>
-          </ul>
-
-          <div class="exp-tags">
-            <span>Prototype</span>
-            <span>Sustainable</span>
-            <span>AI</span>
+      <div class="arch-row" data-cat="hackathon">
+        <img class="arch-thumb" src="assets/SIH25-26.jpeg" alt="Smart India Hackathon 2025" loading="lazy" />
+        <div class="arch-main">
+          <div class="arch-top">
+            <span class="arch-date">28 SEPT 2025</span>
           </div>
-        </div>
-
-        <div class="exp-center-dot">&lt;&gt;</div>
-
-        <div class="exp-image-card">
-          <img src="assets/SIH25-26.jpeg" alt="Smart India Hackathon 2025">
+          <h3>SMART INDIA HACKATHON (SIH) 2025</h3>
+          <p class="arch-desc">Prototype — a gamified AI platform promoting sustainable farming practices across India.</p>
+          <div class="arch-tags"><span>Hackathon</span><span>Sustainable</span><span>AI</span></div>
         </div>
       </div>
 
@@ -962,126 +604,130 @@
     </div>
   </div>
 
-  <!-- MILESTONES SECTION -->
+  <!-- MILESTONES SECTION — PROOF OF WORK -->
   <section class="milestones-new-section" id="milestones">
 
     <h2 class="milestones-new-heading">
-      MILESTONES & WINS
+      PROOF OF WORK
     </h2>
+    <p class="proof-sub">NUMBERS, LEADERSHIP & PODIUMS.</p>
 
-    <!-- STATS -->
-    <div class="milestone-stats-row">
+    <!-- IMPACT BAND -->
+    <div class="impact-band">
 
-      <div class="milestone-stat-box">
-        <h3>6</h3>
-        <p>TOTAL ACHIEVEMENTS</p>
+      <div class="impact-tile">
+        <h3><span class="count" data-count="5">0</span></h3>
+        <p>PODIUM FINISHES</p>
       </div>
 
-      <div class="milestone-stat-box">
-        <h3>8</h3>
-        <p>COMPETITIONS</p>
+      <div class="impact-tile">
+        <h3><span class="count" data-count="26" data-prefix="₹" data-suffix="K+">0</span></h3>
+        <p>GRANTS & PRIZE MONEY</p>
       </div>
 
-      <div class="milestone-stat-box">
-        <h3>4</h3>
-        <p>AWARDS WON</p>
+      <div class="impact-tile">
+        <h3><span class="count" data-count="500" data-suffix="+">0</span></h3>
+        <p>TEAMS COMPETED AGAINST</p>
       </div>
 
-      <div class="milestone-stat-box">
-        <h3>20</h3>
-        <p>HACKATHONS</p>
+      <div class="impact-tile">
+        <h3><span class="count" data-count="13">0</span></h3>
+        <p>LARGEST TEAM BUILT WITH</p>
       </div>
 
     </div>
 
-    <!-- WINS GRID -->
-    <div class="milestone-wins-grid">
+    <!-- LEADERSHIP SPOTLIGHT -->
+    <h3 class="proof-group-title"><span>★</span> LEADERSHIP</h3>
 
-      <!-- BEST STUDENT CHAPTER -->
-      <article class="milestone-feature-card">
-        <div class="milestone-feature-img">
-          <img src="assets/IUCEEaward26.jpeg" alt="Best Student Chapter Award">
+    <article class="leader-spotlight">
+      <div class="leader-photo">
+        <img src="assets/IUCEEaward26.jpeg" alt="Best Student Chapter Award" loading="lazy" />
+        <span class="leader-seal">★ NATIONAL STAGE · BANGALORE</span>
+      </div>
+
+      <div class="leader-body">
+        <p class="leader-eyebrow">LEADERSHIP · COMMUNITY</p>
+
+        <h3>BEST STUDENT CHAPTER AWARD</h3>
+
+        <div class="leader-meta">
+          <span>🏢 ICTIEE 2026</span>
+          <span>📍 BANGLORE</span>
+          <span>🗓 JAN 2026</span>
         </div>
 
-        <div class="milestone-feature-content">
-          <p class="featured-label">🏆 FEATURED EXCELLENCE</p>
-
-          <h3>BEST STUDENT<br>CHAPTER AWARD</h3>
-
-          <div class="milestone-meta">
-            <span>🏢 ICTIEE 2026</span>
-            <span>📍 BANGLORE</span>
-            <span>🗓 JAN 2026</span>
-          </div>
-
-          <p class="milestone-desc">
-            REPRESENTED SAKEC IUCEE STUDENT CHAPTER AS A STUDENT OFFICER,
-            LEADING INITIATIVES THAT SIGNIFICANTLY ENHANCED STUDENT ENGAGEMENT
-            AND TECHNICAL EXCELLENCE.
-          </p>
-
-          <div class="milestone-tags">
-            <span>Leadership</span>
-            <span>Community</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- TANTRAVIHAR -->
-      <article class="milestone-small-card trophy-bg">
-        <div class="trophy-icon">🏆</div>
-
-        <h3>1ST PRIZE -<br>TANTRAVIHAR<br>2026</h3>
-
-        <p class="milestone-category">
-          CATEGORY - SUSTAINABLE INNOVATION
+        <p class="leader-desc">
+          REPRESENTED SAKEC IUCEE STUDENT CHAPTER AS A STUDENT OFFICER,
+          LEADING INITIATIVES THAT SIGNIFICANTLY ENHANCED STUDENT ENGAGEMENT
+          AND TECHNICAL EXCELLENCE.
         </p>
 
-        <p>
-          WON FOR PRESENTING THE COOLOPS PROJECT AND ITS INNOVATIVE CONCEPT FOR
-          THERMODYNAMIC EFFICIENCY.
-        </p>
-
-        <div class="milestone-tags">
-          <span>Winner</span>
-          <span>Project</span>
+        <div class="leader-tags">
+          <span>Leadership</span>
+          <span>Community</span>
+          <span>Student Officer</span>
         </div>
-      </article>
+      </div>
+    </article>
 
-      <!-- RUNNER UP -->
-      <article class="milestone-wide-card trophy-bg">
-        <div class="big-trophy">🏆</div>
+    <!-- WALL OF FAME -->
+    <h3 class="proof-group-title"><span>🏆</span> WALL OF FAME</h3>
 
-        <h3>FIRST RUNNER UP -<br>SUSTAINABILITY IDEATHON<br>2026</h3>
+    <div class="fame-marquee">
+      <div class="fame-track">
 
-        <p>
-          SECURED FOR COOLOPS, A COMPACT THERMOELECTRIC COOLING SOLUTION AIMED
-          AT REDUCING ELECTRONIC WASTE AND ENERGY CONSUMPTION.
-        </p>
-
-        <div class="milestone-tags">
-          <span>Winner</span>
-          <span>Innovation</span>
+        <div class="fame-card">
+          <span class="fame-medal">🏆</span>
+          <div><h4>EUREKA 2026</h4><p>1ST PRIZE · SAKEC</p></div>
         </div>
-      </article>
 
-      <!-- UI UX PIXEL -->
-      <article class="milestone-wide-card trophy-bg">
-        <div class="big-trophy">🏆</div>
-
-        <h3>SECOND PRIZE - UI/UX PIXEL<br>HACKATHON</h3>
-
-        <p>
-          SECURED 2ND PLACE IN A UI/UX HACKATHON AT SIES COLLEGE NERUL AND WON
-          MONEY WORTH 1K RS.
-        </p>
-
-        <div class="milestone-tags">
-          <span>Winner</span>
-          <span>UI/UX</span>
+        <div class="fame-card">
+          <span class="fame-medal">🏆</span>
+          <div><h4>TANTRAVIHAR 2026</h4><p>1ST PRIZE · VIT</p></div>
         </div>
-      </article>
 
+        <div class="fame-card">
+          <span class="fame-medal">🥈</span>
+          <div><h4>AETHER HACKCONQUEST</h4><p>RUNNER-UP · TCET</p></div>
+        </div>
+
+        <div class="fame-card">
+          <span class="fame-medal">🥈</span>
+          <div><h4>PIXELS UI/UX 2026</h4><p>2ND OF 30 · SIES</p></div>
+        </div>
+
+        <div class="fame-card">
+          <span class="fame-medal">🥈</span>
+          <div><h4>IDEATHON 2026</h4><p>2ND PRIZE · FR. AGNEL</p></div>
+        </div>
+
+        <div class="fame-card" aria-hidden="true">
+          <span class="fame-medal">🏆</span>
+          <div><h4>EUREKA 2026</h4><p>1ST PRIZE · SAKEC</p></div>
+        </div>
+
+        <div class="fame-card" aria-hidden="true">
+          <span class="fame-medal">🏆</span>
+          <div><h4>TANTRAVIHAR 2026</h4><p>1ST PRIZE · VIT</p></div>
+        </div>
+
+        <div class="fame-card" aria-hidden="true">
+          <span class="fame-medal">🥈</span>
+          <div><h4>AETHER HACKCONQUEST</h4><p>RUNNER-UP · TCET</p></div>
+        </div>
+
+        <div class="fame-card" aria-hidden="true">
+          <span class="fame-medal">🥈</span>
+          <div><h4>PIXELS UI/UX 2026</h4><p>2ND OF 30 · SIES</p></div>
+        </div>
+
+        <div class="fame-card" aria-hidden="true">
+          <span class="fame-medal">🥈</span>
+          <div><h4>IDEATHON 2026</h4><p>2ND PRIZE · FR. AGNEL</p></div>
+        </div>
+
+      </div>
     </div>
 
   </section>
