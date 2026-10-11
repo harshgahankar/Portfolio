@@ -1094,7 +1094,7 @@ updateSkills("software");
   io.observe(section);
 })();
 
-/* Splash — HARSH stagger, once per session, load-gated */
+/* Splash — HARSH stagger, every reload, 3s, load-gated */
 (function () {
   var splash = document.getElementById("splash");
   if (!splash) return;
@@ -1106,8 +1106,7 @@ updateSkills("software");
 
   try {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { kill(); return; }
-    if (sessionStorage.getItem("hg-splash") === "seen") { kill(); return; }
-  } catch (e) { /* storage unavailable — show once */ }
+  } catch (e) { /* show splash */ }
 
   document.body.classList.add("splashing");
 
@@ -1116,19 +1115,18 @@ updateSkills("software");
     if (done) return;
     done = true;
     splash.classList.add("done");
-    try { sessionStorage.setItem("hg-splash", "seen"); } catch (e) {}
     try { window.dispatchEvent(new Event("hg:splash-done")); } catch (e) {}
     setTimeout(kill, 650);
   }
 
   splash.addEventListener("click", finish);
 
-  var minTime = new Promise(function (res) { setTimeout(res, 5300); });
+  var minTime = new Promise(function (res) { setTimeout(res, 3000); });
   var loaded = new Promise(function (res) {
     if (document.readyState === "complete") { res(); return; }
     window.addEventListener("load", res);
-    setTimeout(res, 6000);
+    setTimeout(res, 3500);
   });
   Promise.all([minTime, loaded]).then(finish);
-  setTimeout(finish, 9000);
+  setTimeout(finish, 5000);
 })();
