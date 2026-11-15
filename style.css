@@ -5727,6 +5727,128 @@ a {
   border-radius: 999px;
 }
 
+/* ---------- extras: CRT power-on, sound toggle, key legend, demo badge, secret cartridge ---------- */
+.cart-screen[data-state="booting"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: #fff;
+  pointer-events: none;
+  animation: cartPowerOn 0.3s ease-out forwards;
+}
+
+@keyframes cartPowerOn {
+  0% { transform: scaleY(0.006); opacity: 0.95; }
+  55% { transform: scaleY(0.02); opacity: 0.8; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+.cart-screen[data-state="on"] .cart-play { animation: cartFlicker 0.5s linear; }
+
+@keyframes cartFlicker {
+  0% { opacity: 0; }
+  12% { opacity: 0.9; }
+  20% { opacity: 0.25; }
+  34% { opacity: 1; }
+  46% { opacity: 0.6; }
+  60%, 100% { opacity: 1; }
+}
+
+.cart-sound { min-width: 76px; padding: 0 12px; }
+.cart-sound[aria-pressed="true"] { border-color: #FF7A18; color: #FF7A18; }
+
+.cart-keys {
+  margin: 16px 7px 0;
+  color: #8f8f8f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.cart-keys kbd {
+  display: inline-block;
+  margin: 0 4px 0 12px;
+  padding: 3px 7px;
+  border-radius: 5px;
+  border: 1px solid #343434;
+  background: #0c0c0c;
+  color: #cfcfcf;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
+  font-size: 10px;
+}
+
+.cart-keys kbd:first-child { margin-left: 0; }
+.cart-keys kbd + kbd { margin-left: 0; }
+
+.cart-demo {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  z-index: 3;
+  padding: 3px 9px;
+  border: 1px solid #FF7A18;
+  color: #FF7A18;
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  display: none;
+  animation: cartBlink 1.2s steps(2) infinite;
+}
+
+.cart-console.demo .cart-demo { display: block; }
+
+.cart-toast {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #fde047;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  opacity: 0;
+  translate: 0 6px;
+  transition: opacity 0.3s ease, translate 0.3s ease;
+  pointer-events: none;
+}
+
+.cart-toast.show { opacity: 1; translate: 0 0; }
+
+.cart-shelf.has-secret { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+
+.cart.secret {
+  --c: #f5f5f5;
+  background: linear-gradient(180deg, #232323, #101010);
+}
+
+.cart-q {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  background: repeating-linear-gradient(45deg, #0c0c0c 0 6px, #151515 6px 12px);
+  color: #FF7A18;
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-size: clamp(24px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.cart-led.secret { background: #fff; color: #fff; }
+
+/* the secret cartridge uses a plain photo, not the padded project art */
+.cart-art.plain { background: linear-gradient(160deg, #FF7A18, #5c2500); }
+
+.cart-art.plain img {
+  left: 0;
+  translate: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
 /* ---------- responsive ---------- */
 @media (max-width: 1100px) {
   .cart-layout { grid-template-columns: minmax(0, 1fr) 340px; }
@@ -5760,6 +5882,7 @@ a {
 }
 
 @media (hover: none) {
+  .cart-keys { display: none; }
   .cart-hint-desk { display: none; }
   .cart-hint-touch { display: inline; }
 }
@@ -5770,6 +5893,9 @@ a {
   .cart-panel { padding: 22px 18px 26px; }
   .cart-start { padding: 0 20px; }
   .cart-play-desc { display: none; }
+  .cart-toast { position: static; margin-top: 8px; }
+  .cart-sound { min-width: 0; }
+  .cart-eject { padding: 0 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -5777,6 +5903,8 @@ a {
   .cart-section.in .cart-pick,
   .cart-idle b,
   .cart-press,
+  .cart-demo,
+  .cart-screen[data-state="on"] .cart-play,
   .cart-console.thunk .cart-body {
     animation: none;
     opacity: 1;
@@ -6062,7 +6190,7 @@ a {
 }
 
 /* ============================= */
-/* SPLASH — HARSH LETTER STAGGER */
+/* SPLASH — CONSOLE BOOT SCREEN */
 /* ============================= */
 
 body.splashing { overflow: hidden; }
@@ -6086,17 +6214,78 @@ body.splashing .navbar {
 .splash.done {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.55s ease, visibility 0s linear 0.6s;
+  transition: opacity 0.3s ease 0.3s, visibility 0s linear 0.62s;
 }
 
+/* powers on like a CRT: a bright line that opens into the picture */
 .splash-inner {
   text-align: center;
-  transition: transform 0.55s ease, filter 0.55s ease;
+  animation: splashPowerOn 0.4s cubic-bezier(0.2, 0.9, 0.3, 1) both;
+  transition: transform 0.3s cubic-bezier(0.6, 0, 0.9, 0.4), filter 0.3s ease;
 }
 
+@keyframes splashPowerOn {
+  0% { transform: scale(0.3, 0.004); filter: brightness(4); }
+  45% { transform: scale(1, 0.004); filter: brightness(4); }
+  100% { transform: scale(1, 1); filter: brightness(1); }
+}
+
+/* ...and powers off the same way */
 .splash.done .splash-inner {
-  transform: scale(1.07);
-  filter: blur(6px);
+  transform: scale(1, 0.004);
+  filter: brightness(4);
+}
+
+.splash-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.55));
+}
+
+.splash-log {
+  width: max-content;
+  max-width: 90vw;
+  margin: 0 auto clamp(18px, 3vw, 30px);
+  text-align: left;
+  color: #8f8f8f;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
+  font-size: clamp(11px, 1.3vw, 15px);
+  line-height: 1.9;
+  letter-spacing: 1.5px;
+  user-select: none;
+}
+
+.splash-log p {
+  white-space: pre;
+  opacity: 0;
+  animation: splashLine 0.01s linear forwards;
+  animation-delay: calc(0.4s + var(--l) * 0.24s);
+}
+
+.splash-log p:first-child,
+.splash-log p:last-child { color: var(--orange); }
+
+.splash-log b { color: #4ade80; font-weight: 700; }
+
+.splash-log i {
+  display: inline-block;
+  width: 0.6em;
+  height: 1em;
+  margin-left: 6px;
+  vertical-align: -0.12em;
+  background: var(--orange);
+  animation: splashCursor 0.7s steps(2) infinite;
+}
+
+@keyframes splashLine {
+  to { opacity: 1; }
+}
+
+@keyframes splashCursor {
+  50% { opacity: 0; }
 }
 
 .splash-word {
@@ -6119,8 +6308,8 @@ body.splashing .navbar {
     splashPop 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards,
     splashBreathe 2.6s ease-in-out infinite;
   animation-delay:
-    calc(0.15s + var(--i) * 0.09s),
-    calc(1.5s + var(--i) * 0.12s);
+    calc(1.35s + var(--i) * 0.08s),
+    calc(2.6s + var(--i) * 0.12s);
 }
 
 @keyframes splashBreathe {
@@ -6146,11 +6335,12 @@ body.splashing .navbar {
 }
 
 .splash-bar {
-  width: 180px;
-  height: 2px;
+  width: 220px;
+  max-width: 60vw;
+  height: 12px;
   margin: 26px auto 0;
-  border-radius: 99px;
-  background: rgba(255, 255, 255, 0.12);
+  padding: 2px;
+  border: 1px solid var(--orange);
   overflow: hidden;
 }
 
@@ -6158,11 +6348,10 @@ body.splashing .navbar {
   display: block;
   height: 100%;
   width: 100%;
-  border-radius: 99px;
   background: var(--orange);
   transform: scaleX(0);
   transform-origin: left center;
-  animation: splashBar 2.5s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+  animation: splashBar 1.9s steps(14) 0.4s forwards;
 }
 
 @keyframes splashBar {

@@ -793,6 +793,92 @@ updateSkills("software");
   var loaded = -1;      /* index of the cartridge in the console, -1 = empty */
   var token = 0;        /* bumps on every load/eject so stale timers no-op */
   var fly = null;       /* cartridge clone currently flying to the console */
+  var demo = false;     /* true while attract mode is driving the console */
+  var artEl = screenImg.parentNode;
+  var soundBtn = document.getElementById("cartSound");
+  var toastEl = document.getElementById("cartToast");
+
+  /* Hidden ninth cartridge — joins the shelf after a visitor loads 3 different
+     projects (remembered in localStorage). Edit the text here freely. */
+  var SECRET = {
+    secret: true,
+    name: "Player One", cat: "SECRET CARTRIDGE · PLAYER PROFILE",
+    desc: "Harsh Gahankar — Computer Engineering student, web designer and UI/UX creator.",
+    tags: ["Web Design", "UI/UX", "Hackathons"],
+    img: "assets/myself.webp",
+    alt: "Portrait of Harsh Gahankar",
+    live: null, repo: null,
+    status: "secret", context: null,
+    features: [
+      "5 hackathon podiums",
+      "Top 10 of 500+ teams",
+      "Projects across web, AI and design"
+    ]
+  };
+  var SECRET_AFTER = 3;
+  var unlocked = false;
+  var explored = {};
+
+  /* --- sound: synthesised with Web Audio, on by default (a visitor's mute is remembered).
+     Browsers block audio until the first click/tap/key press, so nothing plays before that. --- */
+  var soundOn = true, actx = null, gesture = false;
+  try { if (localStorage.getItem("hg-sound") === "off") soundOn = false; } catch (e) { /* storage blocked */ }
+  ["pointerdown", "keydown", "touchend"].forEach(function (ev) {
+    window.addEventListener(ev, function () { gesture = true; }, { capture: true, passive: true });
+  });
+
+  function tone(freq, start, dur, type, vol) {
+    var o = actx.createOscillator(), g = actx.createGain();
+    var t = actx.currentTime + start;
+    o.type = type || "square";
+    o.frequency.setValueAtTime(freq, t);
+    g.gain.setValueAtTime(vol || 0.05, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g);
+    g.connect(actx.destination);
+    o.start(t);
+    o.stop(t + dur + 0.02);
+  }
+
+  var SFX = {
+    click: function () { tone(140, 0, 0.07, "square", 0.09); tone(70, 0.02, 0.09, "triangle", 0.14); },
+    chime: function () { tone(523.25, 0, 0.12); tone(659.25, 0.1, 0.12); tone(783.99, 0.2, 0.22); },
+    eject: function () { tone(330, 0, 0.08); tone(220, 0.07, 0.12); },
+    secret: function () { [523.25, 659.25, 783.99, 1046.5].forEach(function (f, k) { tone(f, k * 0.09, 0.16); }); }
+  };
+
+  function sfx(name) {
+    if (!soundOn || !gesture || demo) return;
+    try {
+      if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+      if (actx.state === "suspended") actx.resume();
+      SFX[name]();
+    } catch (e) { /* audio unavailable: stay silent */ }
+  }
+
+  function setSound(on) {
+    soundOn = on;
+    try { localStorage.setItem("hg-sound", on ? "on" : "off"); } catch (e) { /* storage blocked */ }
+    if (!soundBtn) return;
+    soundBtn.setAttribute("aria-pressed", soundOn ? "true" : "false");
+    soundBtn.setAttribute("aria-label", soundOn ? "Turn sound off" : "Turn sound on");
+    soundBtn.textContent = soundOn ? "♪ ON" : "♪ OFF";
+  }
+
+  /* where START / PRESS START should go for a cartridge */
+  function dest(p) {
+    if (p.secret) return { href: "#contact", ext: false, what: "CONTACT", label: "Go to the contact section" };
+    return {
+      href: p.live || p.repo, ext: true, what: p.live ? "LIVE DEMO" : "SOURCE CODE",
+      label: (p.live ? "Open the live demo of " : "Open the source code of ") + p.name
+    };
+  }
+
+  function point(a, d) {
+    a.href = d.href;
+    a.setAttribute("aria-label", d.label);
+    if (d.ext) a.setAttribute("target", "_blank"); else a.removeAttribute("target");
+  }
 
   function pad(n) { return String(n).padStart(2, "0"); }
 
@@ -808,6 +894,11 @@ updateSkills("software");
 
   /* --- markup builders --- */
   function cartHTML(p, i) {
+    if (p.secret) {
+      return '<span class="cart secret"><span class="cart-grip"></span>'
+        + '<span class="cart-label"><span class="cart-q">?</span><span class="cart-label-name">???</span></span>'
+        + '<span class="cart-foot"><i>??</i><b class="cart-led secret"></b></span></span>';
+    }
     var flag = p.status === "soon" ? '<span class="cart-ribbon soon">COMING SOON</span>'
       : p.status === "code" ? '<span class="cart-ribbon code">DEV KIT</span>' : "";
     return '<span class="cart" style="--c:' + COLORS[i % COLORS.length] + '">'
@@ -824,7 +915,15 @@ updateSkills("software");
     if (p.status === "live") return '<span class="live-pill live"><b></b>LIVE</span>';
     if (p.status === "soon") return '<span class="live-pill soon"><b></b>SOON</span>';
     if (p.status === "code") return '<span class="live-pill code"><b></b>CODE</span>';
+    if (p.status === "secret") return '<span class="live-pill soon"><b></b>SECRET</span>';
     return "";
+  }
+
+  function pickHTML(p, i) {
+    return '<button type="button" class="cart-pick" data-i="' + i + '" aria-pressed="false"'
+      + ' style="--d:' + (p.secret ? 0 : 0.1 + i * 0.07).toFixed(2) + 's"'
+      + ' aria-label="' + (p.secret ? "Load the secret cartridge" : "Load " + p.name + " — " + p.desc) + '">'
+      + cartHTML(p, i) + "</button>";
   }
 
   function panelHTML(i) {
@@ -837,6 +936,10 @@ updateSkills("software");
     var badges = p.tags.map(function (t) { return "<span>" + t + "</span>"; }).join("");
     var links = (p.live ? '<a class="project-listing-btn project-listing-btn-visit" href="' + p.live + '" target="_blank" rel="noopener noreferrer">Live Demo <span>→</span></a>' : "")
       + (p.repo ? '<a class="project-listing-btn project-listing-btn-repo" href="' + p.repo + '" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>' : "");
+    if (p.secret) {
+      links = '<a class="project-listing-btn project-listing-btn-visit" href="#contact">Say hi <span>→</span></a>'
+        + '<a class="project-listing-btn project-listing-btn-repo" href="assets/Harsh-Gahankar-Resume.pdf" download>Resume <span>↓</span></a>';
+    }
     var feats = p.features.map(function (f) { return "<li>" + f + "</li>"; }).join("");
     /* Case-study structure: Problem -> My role -> Stack -> Outcome.
        Add `problem`, `role` and `outcome` to a project above to override the defaults. */
@@ -844,10 +947,10 @@ updateSkills("software");
       + (!p.outcome && p.context ? '<p class="cart-cs-text cart-cs-win">' + p.context + "</p>" : "")
       + '<ul class="cart-feats">' + feats + "</ul>";
     var steps = [
-      ["PROBLEM", '<p class="cart-cs-text">' + (p.problem || p.desc) + "</p>"],
+      [p.secret ? "PLAYER" : "PROBLEM", '<p class="cart-cs-text">' + (p.problem || p.desc) + "</p>"],
       p.role ? ["MY ROLE", '<p class="cart-cs-text">' + p.role + "</p>"] : null,
-      ["STACK", '<div class="cart-stack">' + badges + "</div>"],
-      ["OUTCOME", outcome]
+      [p.secret ? "SKILLS" : "STACK", '<div class="cart-stack">' + badges + "</div>"],
+      [p.secret ? "HIGH SCORES" : "OUTCOME", outcome]
     ].filter(Boolean);
     var cs = steps.map(function (st, k) {
       return '<div class="cart-cs-step"><p class="cart-step-label"><b>' + pad(k + 1) + "</b>" + st[0] + "</p>" + st[1] + "</div>";
@@ -859,12 +962,29 @@ updateSkills("software");
   }
 
   /* --- shelf --- */
-  shelf.innerHTML = PROJECTS.map(function (p, i) {
-    return '<button type="button" class="cart-pick" data-i="' + i + '" aria-pressed="false"'
-      + ' style="--d:' + (0.1 + i * 0.07).toFixed(2) + 's"'
-      + ' aria-label="Load ' + p.name + " — " + p.desc + '">' + cartHTML(p, i) + "</button>";
-  }).join("");
+  shelf.innerHTML = PROJECTS.map(pickHTML).join("");
   var picks = shelf.querySelectorAll(".cart-pick");
+
+  function unlockSecret(silent) {
+    if (unlocked) return;
+    unlocked = true;
+    PROJECTS.push(SECRET);
+    N = PROJECTS.length;
+    shelf.classList.add("has-secret");
+    shelf.insertAdjacentHTML("beforeend", pickHTML(SECRET, N - 1));
+    picks = shelf.querySelectorAll(".cart-pick");
+    countEl.innerHTML = countEl.innerHTML.replace(/\/ \d+/, "/ " + pad(N));
+    readout.innerHTML = readout.innerHTML.replace(/\/\d+/, "/" + pad(N));
+    try { localStorage.setItem("hg-secret-cart", "1"); } catch (e) { /* storage blocked */ }
+    if (silent) return;
+    if (shelf.scrollWidth > shelf.clientWidth) shelf.scrollTo({ left: shelf.scrollWidth, behavior: "smooth" });
+    sfx("secret");
+    if (toastEl) {
+      toastEl.textContent = "✦ SECRET CARTRIDGE UNLOCKED";
+      toastEl.classList.add("show");
+      setTimeout(function () { toastEl.classList.remove("show"); }, 5000);
+    }
+  }
 
   /* --- everything that follows the loaded index, minus the animation --- */
   function sync(animatePanel) {
@@ -879,13 +999,12 @@ updateSkills("software");
     countEl.innerHTML = p ? pad(loaded + 1) + " <span>/ " + pad(N) + "</span>" : "-- <span>/ " + pad(N) + "</span>";
 
     if (p) {
-      var dest = p.live || p.repo;
+      var d = dest(p);
       readout.innerHTML = pad(loaded + 1) + "/" + pad(N) + " · " + p.name.toUpperCase()
-        + "<span>START → " + (p.live ? "LIVE DEMO" : "SOURCE CODE") + "</span>";
-      if (dest) {
-        startBtn.href = dest;
+        + "<span>START → " + d.what + "</span>";
+      if (d.href) {
+        point(startBtn, d);
         startBtn.setAttribute("aria-disabled", "false");
-        startBtn.setAttribute("aria-label", (p.live ? "Open the live demo of " : "Open the source code of ") + p.name);
       }
     } else {
       readout.innerHTML = "NO CARTRIDGE<span>PICK ONE FROM THE SHELF</span>";
@@ -913,8 +1032,8 @@ updateSkills("software");
     hudName.textContent = p.name;
     hudDesc.textContent = p.desc;
     hudStatus.innerHTML = statusPill(p);
-    press.href = p.live || p.repo;
-    press.setAttribute("aria-label", (p.live ? "Open the live demo of " : "Open the source code of ") + p.name);
+    point(press, dest(p));
+    artEl.classList.toggle("plain", !!p.secret);
     screenBg.src = p.img;
     screenImg.src = p.img;
     screenImg.alt = p.alt;
@@ -922,7 +1041,7 @@ updateSkills("software");
     screen.setAttribute("data-state", "blank");
     void screen.offsetWidth; /* restart the loading bar */
     screen.setAttribute("data-state", "booting");
-    later(function () { screen.setAttribute("data-state", "on"); }, 850);
+    later(function () { screen.setAttribute("data-state", "on"); sfx("chime"); }, 850);
   }
 
   /* --- drop the cartridge from the raised position into the slot --- */
@@ -935,14 +1054,20 @@ updateSkills("software");
       consoleEl.classList.remove("thunk");
       void consoleEl.offsetWidth;
       consoleEl.classList.add("thunk");
+      sfx("click");
     }, 170);
     boot(i);
   }
 
   /* fromRect: where the cartridge starts flying from (defaults to its shelf spot) */
-  function load(i, fromRect) {
+  /* auto: true when the console loads it by itself (first load, attract mode) */
+  function load(i, fromRect, auto) {
     i = (i + N) % N;
     if (i === loaded) return;
+    if (!auto && !unlocked && !PROJECTS[i].secret) {
+      explored[i] = true;
+      if (Object.keys(explored).length >= SECRET_AFTER) setTimeout(function () { unlockSecret(false); }, 1700);
+    }
     token++;
     removeFly();
     var hadOne = loaded >= 0;
@@ -984,6 +1109,7 @@ updateSkills("software");
     dockCart.className = "cart-dock-cart ejecting";
     screen.setAttribute("data-state", "idle");
     sync(true);
+    sfx("eject");
   }
 
   /* --- click / keyboard --- */
@@ -998,6 +1124,83 @@ updateSkills("software");
   document.getElementById("cartNext").addEventListener("click", function () { load(loaded < 0 ? 0 : loaded + 1); });
   document.getElementById("cartEject").addEventListener("click", eject);
   startBtn.addEventListener("click", function (e) { if (!startBtn.getAttribute("href")) e.preventDefault(); });
+
+  if (soundBtn) {
+    soundBtn.setAttribute("aria-pressed", soundOn ? "true" : "false");
+    soundBtn.setAttribute("aria-label", soundOn ? "Turn sound off" : "Turn sound on");
+    soundBtn.textContent = soundOn ? "♪ ON" : "♪ OFF";
+    soundBtn.addEventListener("click", function () {
+      setSound(!soundOn);
+      sfx("chime");
+    });
+  }
+
+  /* arrows walk the shelf (Enter loads the focused cartridge), Esc ejects */
+  section.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") { eject(); return; }
+    var btn = e.target.closest ? e.target.closest(".cart-pick") : null;
+    if (!btn) return;
+    var i = parseInt(btn.getAttribute("data-i"), 10), to = -1;
+    if (e.key === "ArrowRight") to = (i + 1) % N;
+    else if (e.key === "ArrowLeft") to = (i - 1 + N) % N;
+    else if (e.key === "Home") to = 0;
+    else if (e.key === "End") to = N - 1;
+    if (to < 0) return;
+    e.preventDefault();
+    picks[to].focus();
+  });
+
+  /* --- attract mode: after IDLE ms with no activity the console cycles by itself.
+     Moving the pointer or scrolling pauses it; a click, key or touch ends it. --- */
+  var IDLE = 10000, STEP = 5500;
+  var demoDead = reduceMotion, demoTimer = null, inView = false, lastActive = Date.now();
+
+  function demoOff() {
+    if (!demo) return;
+    demo = false;
+    consoleEl.classList.remove("demo");
+    panelBody.setAttribute("aria-live", "polite");
+  }
+
+  function scheduleDemo(ms) {
+    clearTimeout(demoTimer);
+    if (!demoDead) demoTimer = setTimeout(demoTick, ms);
+  }
+
+  function demoTick() {
+    var quiet = Date.now() - lastActive;
+    if (!inView || document.hidden || drag || quiet < IDLE) {
+      demoOff();
+      scheduleDemo(Math.max(2000, IDLE - quiet));
+      return;
+    }
+    demo = true;
+    consoleEl.classList.add("demo");
+    panelBody.setAttribute("aria-live", "off"); /* don't narrate the demo */
+    load(loaded < 0 ? 0 : loaded + 1, null, true);
+    scheduleDemo(STEP);
+  }
+
+  function killDemo() {
+    if (demoDead) return;
+    demoDead = true;
+    clearTimeout(demoTimer);
+    demoOff();
+  }
+
+  section.addEventListener("pointermove", function () { lastActive = Date.now(); demoOff(); }, { passive: true });
+  window.addEventListener("scroll", function () { lastActive = Date.now(); }, { passive: true });
+  ["pointerdown", "touchstart", "keydown", "click", "focusin"].forEach(function (ev) {
+    section.addEventListener(ev, killDemo, { passive: true });
+  });
+
+  if (!demoDead && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { inView = en.isIntersecting; });
+    }, { threshold: 0.5 }).observe(consoleEl);
+  } else {
+    demoDead = true;
+  }
 
   /* --- drag a cartridge into the console (mouse / pen only; touch taps) --- */
   var drag = null;
@@ -1066,11 +1269,12 @@ updateSkills("software");
   }
 
   /* --- init: empty console, then auto-load the first cartridge on scroll-in --- */
+  try { if (localStorage.getItem("hg-secret-cart")) unlockSecret(true); } catch (e) { /* storage blocked */ }
   sync(false);
 
   if (reduceMotion || !("IntersectionObserver" in window)) {
     section.classList.add("in");
-    load(0);
+    load(0, null, true);
   } else {
     section.classList.add("js-anim");
     var seen = new IntersectionObserver(function (entries) {
@@ -1078,7 +1282,9 @@ updateSkills("software");
         if (!en.isIntersecting) return;
         section.classList.add("in");
         seen.disconnect();
-        later(function () { load(0); }, 1100);
+        later(function () { if (loaded < 0) load(0, null, true); }, 1100);
+        lastActive = Date.now();
+        scheduleDemo(IDLE);
       });
     }, { threshold: 0.2 });
     seen.observe(section);
@@ -1131,7 +1337,7 @@ updateSkills("software");
   io.observe(section);
 })();
 
-/* Splash — HARSH stagger, once per session, 1.8s, load-gated */
+/* Splash — console boot sequence then HARSH, once per session, 2.4s, load-gated */
 (function () {
   var splash = document.getElementById("splash");
   if (!splash) return;
@@ -1164,7 +1370,7 @@ updateSkills("software");
 
   splash.addEventListener("click", finish);
 
-  var minTime = new Promise(function (res) { setTimeout(res, 1800); });
+  var minTime = new Promise(function (res) { setTimeout(res, 2400); });
   var loaded = new Promise(function (res) {
     if (document.readyState === "complete") { res(); return; }
     window.addEventListener("load", res);

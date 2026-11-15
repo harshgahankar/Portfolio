@@ -22,11 +22,18 @@
   <!-- SPLASH -->
   <div class="splash" id="splash" aria-hidden="true">
     <div class="splash-inner">
+      <div class="splash-log">
+        <p style="--l:0">HG SYSTEM v1.0</p>
+        <p style="--l:1">MEMORY CHECK .......... <b>OK</b></p>
+        <p style="--l:2">LOADING 8 CARTRIDGES .. <b>OK</b></p>
+        <p style="--l:3">PLAYER 1 READY<i></i></p>
+      </div>
       <div class="splash-word">
         <span style="--i:0">H</span><span style="--i:1">A</span><span style="--i:2">R</span><span style="--i:3">S</span><span style="--i:4">H</span>
       </div>
       <div class="splash-bar"><span></span></div>
     </div>
+    <div class="splash-scan"></div>
   </div>
 
   <!-- NAVBAR -->
@@ -303,6 +310,7 @@
         <span class="cart-hint-desk">✳ Click a cartridge — or drag it into the console.</span>
         <span class="cart-hint-touch">✳ Tap a cartridge to load it.</span>
       </p>
+      <p class="cart-toast" id="cartToast" role="status"></p>
     </div>
 
     <div class="cart-layout">
@@ -333,6 +341,7 @@
               <p><b>NO CARTRIDGE</b></p>
               <p>Pick one from the shelf</p>
             </div>
+            <span class="cart-demo" aria-hidden="true">DEMO</span>
             <div class="cart-scan" aria-hidden="true"></div>
           </div>
 
@@ -343,10 +352,12 @@
             </div>
             <p class="cart-readout" id="cartReadout"></p>
             <div class="cart-actions">
+              <button class="cart-eject cart-sound" id="cartSound" type="button" aria-pressed="true" aria-label="Turn sound off">♪ ON</button>
               <button class="cart-eject" id="cartEject" type="button">EJECT</button>
               <a class="cart-start" id="cartStart" target="_blank" rel="noopener noreferrer" aria-disabled="true">START</a>
             </div>
           </div>
+          <p class="cart-keys" aria-hidden="true"><kbd>←</kbd><kbd>→</kbd> BROWSE <kbd>ENTER</kbd> LOAD <kbd>ESC</kbd> EJECT</p>
         </div>
       </div>
 
