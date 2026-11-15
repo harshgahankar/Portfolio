@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harsh Gahankar | Portfolio</title>
+  <meta name="description" content="Harsh Gahankar — Computer Engineering student, web designer and UI/UX creator. 5 hackathon podiums, Top 10 of 500+ teams, projects across web, AI and design." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Harsh Gahankar | Portfolio" />
+  <meta property="og:description" content="Web designer & UI/UX creator — projects, hackathon podiums and proof of work." />
+  <meta property="og:image" content="assets/myself.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0b0b0f" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <noscript><style>.splash { display: none !important; }</style></noscript>
+</head>
+
+<body>
+
+  <!-- SPLASH -->
+  <div class="splash" id="splash" aria-hidden="true">
+    <div class="splash-inner">
+      <div class="splash-word">
+        <span style="--i:0">H</span><span style="--i:1">A</span><span style="--i:2">R</span><span style="--i:3">S</span><span style="--i:4">H</span>
+      </div>
+      <div class="splash-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="#home" class="nav-logo">HG</a>
+
+    <nav class="nav-links" aria-label="Main">
+      <a href="#projects">PROJECTS</a>
+      <a href="#skills">SKILLS</a>
+      <a href="#experience">EXPERIENCE</a>
+      <a href="#milestones">ACHIEVEMENTS</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+
+    <a href="assets/Harsh-Gahankar-Resume.pdf" download class="nav-resume">RESUME</a>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <nav class="mobile-menu-links" aria-label="Mobile">
+      <a href="#projects"><i>01</i>PROJECTS</a>
+      <a href="#skills"><i>02</i>SKILLS</a>
+      <a href="#experience"><i>03</i>EXPERIENCE</a>
+      <a href="#milestones"><i>04</i>ACHIEVEMENTS</a>
+      <a href="#contact"><i>05</i>CONTACT</a>
+    </nav>
+    <a href="assets/Harsh-Gahankar-Resume.pdf" download class="mobile-menu-resume">DOWNLOAD RESUME ↓</a>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero section-dark" id="home">
+    <div class="stars"></div>
+    <div class="grain"></div>
+
+    <div class="hero-giant" aria-hidden="true">HARSH</div>
+
+    <div class="hero-person-wrap">
+      <img src="assets/myself.webp" class="hero-person" alt="Harsh Gahankar" />
+    </div>
+
+    <div class="hero-left">
+      <p class="hero-hi">HI I AM</p>
+      <h1 class="hero-name">HARSH<br />GAHANKAR</h1>
+      <p class="hero-role">Web Designer &<br />UIUX Creator</p>
+      <p class="hero-desc">
+        I AM A COMPUTER ENGINEERING STUDENT PASSIONATE ABOUT BUILDING
+        USEFUL DIGITAL PRODUCTS, CREATIVE INTERFACES, AND AI-POWERED
+        SOLUTIONS. MY WORK BLENDS CODE, DESIGN, AND STORYTELLING —
+        FROM HACKATHON PROJECTS TO REAL-WORLD WEB PLATFORMS.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="hero-btn hero-btn-main">View Projects <span>→</span></a>
+        <a href="assets/Harsh-Gahankar-Resume.pdf" download class="hero-btn hero-btn-ghost">Download Resume <span>↓</span></a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <span class="hero-sparkle">✦</span>
+      <p>turning ideas<br />into powerful<br />digital experiences</p>
+    </div>
+  </section>
+
+  <!-- EXPLORE PERSONALITY SECTION -->
+  <section class="personality-section clean-personality-section" id="personality">
+
+    <div class="personality-canvas clean-canvas" id="dragCanvas">
+
+      <div class="personality-bg clean-grid-bg"></div>
+
+      <!-- CENTER TEXT -->
+      <div class="personality-main-center">
+        <h2>EXPLORE MY PERSONALITY</h2>
+        <p>DRAG AND HOVER</p>
+      </div>
+
+      <!-- TOP LEFT: HOBBIES -->
+      <div class="hobbies-zone-new">
+
+        <h2 class="hobbies-center-heading">
+          MY HOBBIES
+        </h2>
+
+        <!-- Football -->
+        <div class="hobby-purple-card football-card">
+          <h3>I CHASE THE BALL LIKE IT OWES ME ANSWERS.</h3>
+          <p>
+            One pass, one sprint, one goal — and suddenly the whole world feels simple.
+          </p>
+        </div>
+
+        <img loading="lazy" src="assets/football.webp" class="hobby-img football-img" alt="Football" />
+
+        <!-- Skating -->
+        <div class="hobby-purple-card skating-card">
+          <h3>I LIKE MOVING FASTER THAN MY THOUGHTS.</h3>
+          <p>
+            Skating feels like balance, chaos, and freedom all happening at once.
+          </p>
+        </div>
+
+        <img loading="lazy" src="assets/skating.webp" class="hobby-img skating-img" alt="Skating" />
+
+        <!-- Editing -->
+        <div class="hobby-purple-card editing-card">
+          <h3>I CUT MOMENTS UNTIL THEY START FEELING CINEMATIC.</h3>
+          <p>
+            Clips, beats, effects, and timing — that’s where normal footage becomes magic.
+          </p>
+        </div>
+
+        <img loading="lazy" src="assets/editing.webp" class="hobby-img editing-img" alt="Editing" />
+
+        <!-- Sketching -->
+        <div class="hobby-purple-card sketching-card">
+          <h3>I SKETCH WHAT MY BRAIN CANNOT EXPLAIN.</h3>
+          <p>
+            Random lines, messy ideas, tiny details — somehow they turn into stories.
+          </p>
+        </div>
+
+        <img loading="lazy" src="assets/sketching.webp" class="hobby-img sketching-img" alt="Sketching" />
+
+        <!-- Music -->
+        <div class="hobby-purple-card music-card">
+          <h3>MUSIC IS MY BACKGROUND UNIVERSE.</h3>
+          <p>
+            Some songs don’t just play — they change the whole mood of the moment.
+          </p>
+        </div>
+
+        <img loading="lazy" src="assets/music.webp" class="hobby-img music-img" alt="Music" />
+
+      </div>
+
+      <!-- TOP RIGHT: FUN FACTS -->
+      <div class="facts-zone-new">
+
+        <h2 class="facts-center-heading">
+          5 FUN FACTS ABOUT ME
+        </h2>
+
+        <!-- Animal -->
+        <div class="fun-card animal-card">
+          <h3>I SPEAK FLUENT ANIMAL ENERGY.</h3>
+          <p>
+            No words, just vibes. Somehow every animal feels like a tiny personality
+            with fur, feathers, or chaos.
+          </p>
+        </div>
+
+        <img loading="lazy" src="assets/animal.webp" class="fun-img animal-img" alt="Animal" />
+
+        <!-- Rubik -->
+        <div class="fun-card rubik-card">
+          <h3>I SOLVE CUBES LIKE TINY PUZZLES FROM ANOTHER UNIVERSE.</h3>
+          <p>
+            8 types, 100 patterns, and one very focused brain.
+          </p>
+        </div>
+
+        <img loading="lazy" src="assets/rubics.webp" class="fun-img rubik-img" alt="Rubik cube" />
+
+        <!-- Cards -->
+        <div class="fun-card cards-card">
+          <h3>I COLLECT CARDS LIKE THEY’RE PIECES OF A HIDDEN STORY.</h3>
+          <p>
+            Some are rare. Some are random. All of them feel worth keeping.
+          </p>
+        </div>
+
+        <img loading="lazy" src="assets/cards.webp" class="fun-img cards-img" alt="Cards" />
+
+        <!-- Moon -->
+        <div class="fun-card moon-card">
+          <h3>THE MOON IS MY WEIRD COMFORT OBJECT.</h3>
+          <p>
+            No reason, no explanation. It just looks like peace floating in the sky.
+          </p>
+        </div>
+
+        <img loading="lazy" src="assets/moon.webp" class="fun-img moon-img" alt="Moon" />
+
+        <!-- Misal -->
+        <div class="fun-card misal-card">
+          <h3>MISAL IS NOT FOOD. IT IS AN EMOTION.</h3>
+          <p>
+            One spicy plate and suddenly life starts making sense again.
+          </p>
+        </div>
+
+        <img loading="lazy" src="assets/misal.webp" class="fun-img misal-img" alt="Misal" />
+
+      </div>
+
+      <!-- BOTTOM: TYPICAL DAY -->
+      <div class="routine-zone-new">
+
+        <h2 class="routine-title-new">A typical day into my life</h2>
+
+        <div class="routine-new-card routine-new-one">
+          <img loading="lazy" src="assets/wakeup.webp" alt="wake up">
+          <p>wake up</p>
+        </div>
+
+        <div class="routine-new-card routine-new-two">
+          <img loading="lazy" src="assets/coding.webp" alt="coding">
+          <p>coding</p>
+        </div>
+
+        <div class="routine-new-card routine-new-three">
+          <img loading="lazy" src="assets/gaming.webp" alt="gaming">
+          <p>gaming</p>
+        </div>
+
+        <div class="routine-new-card routine-new-four">
+          <img loading="lazy" src="assets/workout.webp" alt="workout">
+          <p>workout</p>
+        </div>
+
+        <div class="routine-new-card routine-new-five">
+          <img loading="lazy" src="assets/repeat.webp" alt="repeat">
+          <p>repeat</p>
+        </div>
+
+      </div>
+
+      <!-- SMALL DECORATIONS -->
+      <div class="personality-sticker sticker-one">🌼</div>
+      <div class="personality-sticker sticker-two">🎈</div>
+      <div class="personality-sticker sticker-three">🧠</div>
+      <div class="personality-sticker sticker-four">📸</div>
+      <div class="personality-sticker sticker-five">🏆</div>
+
+    </div>
+
+    <div class="drag-hint" id="dragHint" aria-hidden="true">
+      <span class="drag-hint-hand">☝</span>
+      <span>Drag to explore</span>
+    </div>
+
+    <div class="personality-mobile" id="personalityMobile"></div>
+
+    <button class="personality-reset" id="resetBtn">Back to center</button>
+
+  </section>
+
+  <div class="orange-marquee">
+    <div class="marquee-track">
+      Had Fun Knowing Me !&nbsp;&nbsp;&nbsp; Had Fun Knowing Me !&nbsp;&nbsp;&nbsp; Had Fun Knowing Me
+      !&nbsp;&nbsp;&nbsp;
+      Had Fun Knowing Me !&nbsp;&nbsp;&nbsp; Had Fun Knowing Me !&nbsp;&nbsp;&nbsp; Had Fun Knowing Me
+      !&nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+
+  <!-- PROJECTS SECTION — CARTRIDGE CONSOLE -->
+  <section class="cart-section" id="projects">
+    <div class="cart-grid-bg" aria-hidden="true"></div>
+
+    <header class="cart-header">
+      <p class="cart-eyebrow"><span></span>MY WORK — SELECTED PROJECTS</p>
+      <h2 class="cart-title">PICK A<br /><em>CARTRIDGE</em></h2>
+      <p class="cart-sub">Eight builds on the shelf. Load one into the console to see what it does.</p>
+    </header>
+
+    <div class="cart-shelf-wrap">
+      <div class="cart-shelf" id="cartShelf" role="group" aria-label="Project cartridges"></div>
+      <div class="cart-plank" aria-hidden="true"></div>
+      <p class="cart-hint">
+        <span class="cart-hint-desk">✳ Click a cartridge — or drag it into the console.</span>
+        <span class="cart-hint-touch">✳ Tap a cartridge to load it.</span>
+      </p>
+    </div>
+
+    <div class="cart-layout">
+      <div class="cart-console" id="cartConsole">
+        <div class="cart-dock" id="cartDock" aria-hidden="true">
+          <div class="cart-dock-cart" id="cartDockCart"></div>
+        </div>
+
+        <div class="cart-body">
+          <div class="cart-slot" aria-hidden="true"></div>
+
+          <div class="cart-screen" id="cartScreen" data-state="idle">
+            <div class="cart-play">
+              <img class="cart-play-bg" id="cartScreenBg" alt="" aria-hidden="true" />
+              <div class="cart-art"><img id="cartScreenImg" alt="" /></div>
+              <div class="cart-play-txt">
+                <span id="cartHudStatus"></span>
+                <p class="cart-play-name" id="cartHudName"></p>
+                <p class="cart-play-desc" id="cartHudDesc"></p>
+                <a class="cart-press" id="cartPress" target="_blank" rel="noopener noreferrer">▶ PRESS START</a>
+              </div>
+            </div>
+            <div class="cart-boot" aria-hidden="true">
+              <p id="cartBootName">LOADING</p>
+              <div class="cart-boot-bar"><span></span></div>
+            </div>
+            <div class="cart-idle" aria-hidden="true">
+              <p><b>NO CARTRIDGE</b></p>
+              <p>Pick one from the shelf</p>
+            </div>
+            <div class="cart-scan" aria-hidden="true"></div>
+          </div>
+
+          <div class="cart-deck">
+            <div class="cart-dpad">
+              <button id="cartPrev" type="button" aria-label="Previous project">◀</button>
+              <button id="cartNext" type="button" aria-label="Next project">▶</button>
+            </div>
+            <p class="cart-readout" id="cartReadout"></p>
+            <div class="cart-actions">
+              <button class="cart-eject" id="cartEject" type="button">EJECT</button>
+              <a class="cart-start" id="cartStart" target="_blank" rel="noopener noreferrer" aria-disabled="true">START</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="cart-panel" aria-label="Loaded project details">
+        <div class="cart-panel-top">
+          <span class="cart-panel-tag">PROJECT FILE</span>
+          <span class="cart-count" id="cartCount"></span>
+        </div>
+        <div class="cart-panel-body" id="cartPanelBody" aria-live="polite"></div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="orange-marquee">
+    <div class="marquee-track">
+      My Creative Side !&nbsp;&nbsp;&nbsp; My Creative Side !&nbsp;&nbsp;&nbsp; My Creative Side 
+      !&nbsp;&nbsp;&nbsp;
+      My Creative Side !&nbsp;&nbsp;&nbsp; My Creative Side !&nbsp;&nbsp;&nbsp; My Creative Side 
+      !&nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+
+  <!-- SKILLS SECTION -->
+  <section class="skills-filter-section" id="skills">
+
+    <div class="skills-grid-bg-new"></div>
+
+    <div class="skills-top-buttons">
+      <button class="skills-filter-btn active" data-filter="software">SOFTWARE</button>
+      <button class="skills-filter-btn design-btn" data-filter="design">DESIGNING</button>
+    </div>
+
+    <h2 class="skills-main-title">SKILLS</h2>
+
+    <div class="skills-bubbles-area">
+
+      <!-- SOFTWARE SKILLS -->
+      <div class="skill-bubble-new software-skill bubble-html">
+        <img loading="lazy" src="assets/html.webp" alt="HTML">
+        <span>HTML</span>
+      </div>
+
+      <div class="skill-bubble-new software-skill bubble-css">
+        <img loading="lazy" src="assets/css.webp" alt="CSS">
+        <span>CSS</span>
+      </div>
+
+      <div class="skill-bubble-new software-skill bubble-js">
+        <img loading="lazy" src="assets/javascript.webp" alt="JavaScript">
+        <span>JavaScript</span>
+      </div>
+
+      <div class="skill-bubble-new software-skill bubble-react">
+        <img loading="lazy" src="assets/react.webp" alt="ReactJS">
+        <span>ReactJS</span>
+      </div>
+
+      <div class="skill-bubble-new software-skill bubble-tailwind">
+        <img loading="lazy" src="assets/tailwind.webp" alt="Tailwind CSS">
+        <span>Tailwind CSS</span>
+      </div>
+
+      <div class="skill-bubble-new software-skill bubble-sql">
+        <img loading="lazy" src="assets/sql.webp" alt="SQL">
+        <span>SQL</span>
+      </div>
+
+      <div class="skill-bubble-new software-skill bubble-python">
+        <img loading="lazy" src="assets/python.webp" alt="Python">
+        <span>Python</span>
+      </div>
+
+      <div class="skill-bubble-new software-skill bubble-java">
+        <img loading="lazy" src="assets/java.webp" alt="Java">
+        <span>Java</span>
+      </div>
+
+      <div class="skill-bubble-new software-skill bubble-flutter">
+        <img loading="lazy" src="assets/flutter.webp" alt="Flutter">
+        <span>Flutter</span>
+      </div>
+
+      <div class="skill-bubble-new software-skill bubble-cpp">
+        <img loading="lazy" src="assets/cpp.webp" alt="C/C++">
+        <span>C / C++</span>
+      </div>
+
+      <!-- DESIGNING SKILLS -->
+      <div class="skill-bubble-new design-skill bubble-figma">
+        <img loading="lazy" src="assets/figma.webp" alt="Figma">
+        <span>Figma</span>
+      </div>
+
+      <div class="skill-bubble-new design-skill bubble-canva">
+        <img loading="lazy" src="assets/canva.webp" alt="Canva">
+        <span>Canva</span>
+      </div>
+
+      <div class="skill-bubble-new design-skill bubble-photoshop">
+        <img loading="lazy" src="assets/photoshop.webp" alt="Photoshop">
+        <span>Photoshop</span>
+      </div>
+
+      <div class="skill-bubble-new design-skill bubble-alight">
+        <img loading="lazy" src="assets/alightmotion.webp" alt="Alight Motion">
+        <span>Alight Motion</span>
+      </div>
+
+      <div class="skill-bubble-new design-skill bubble-kinemaster">
+        <img loading="lazy" src="assets/kinemaster.webp" alt="Kinemaster">
+        <span>Kinemaster</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="orange-marquee">
+    <div class="marquee-track">
+      Nice Bubbles Right ?&nbsp;&nbsp;&nbsp; Nice Bubbles Right ?&nbsp;&nbsp;&nbsp; Nice Bubbles Right 
+      ?&nbsp;&nbsp;&nbsp;
+      Nice Bubbles Right ?&nbsp;&nbsp;&nbsp; Nice Bubbles Right ?&nbsp;&nbsp;&nbsp; Nice Bubbles Right 
+      ?&nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+
+  <!-- EXPERIENCE SECTION -->
+  <section class="experience-zigzag-section" id="experience">
+
+    <h2 class="experience-zigzag-heading">
+      EXP<span>ERI</span>ENCE
+    </h2>
+
+    <p class="exp-sec-sub">5 PODIUMS · 12 EVENTS AND COUNTING</p>
+
+    <h3 class="exp-group-title"><span>🏆</span> Podiums</h3>
+
+    <div class="podium-grid">
+
+      <article class="podium-card podium-wide rank-1">
+        <div class="podium-photo">
+          <img src="assets/Eureka2026.webp" alt="Eureka 2026" loading="lazy" />
+          <span class="podium-rank">🏆 1ST PRIZE</span>
+        </div>
+        <div class="podium-body">
+          <p class="podium-date">25 AUG 2026 · SAKEC</p>
+          <h3>EUREKA 2026</h3>
+          <p class="podium-desc">Won with AIRA — a compact, plug-and-play air purification and cooling system. Showcased it and pitched to investors.</p>
+          <div class="podium-tags"><span>Competition</span><span>Start-Up</span><span>Innovation</span></div>
+        </div>
+      </article>
+
+      <article class="podium-card podium-wide rank-1">
+        <div class="podium-photo">
+          <img src="assets/Tantavihar26.webp" alt="Tantravihar 2026" loading="lazy" />
+          <span class="podium-rank">🏆 1ST PRIZE</span>
+        </div>
+        <div class="podium-body">
+          <p class="podium-date">11 APR 2026 · VIDYALANKAR INSTITUTE OF TECHNOLOGY</p>
+          <h3>TANTRAVIHAR 2026</h3>
+          <p class="podium-desc">1st prize in the sustainable category for a project showcase build.</p>
+          <div class="podium-tags"><span>Showcase</span><span>Hardware</span><span>Sustainable</span></div>
+        </div>
+      </article>
+
+      <article class="podium-card rank-2">
+        <div class="podium-photo">
+          <img src="assets/Aether2026.webp" alt="Aether HackConquest 2026" loading="lazy" />
+          <span class="podium-rank">🥈 RUNNER-UP</span>
+        </div>
+        <div class="podium-body">
+          <p class="podium-date">30 SEPT – 1 OCT 2026 · TCET</p>
+          <h3>AETHER HACKCONQUEST</h3>
+          <p class="podium-desc">1st Runner-up at a 36-hour virtual hackathon — real-time computer vision for public safety, tested on real datasets and live camera feeds.</p>
+          <div class="podium-tags"><span>Hackathon</span><span>OpenCV</span><span>36hrs</span></div>
+        </div>
+      </article>
+
+      <article class="podium-card rank-2">
+        <div class="podium-photo">
+          <img src="assets/Pixel26.webp" alt="Pixels UI UX Challenge 2026" loading="lazy" />
+          <span class="podium-rank">🥈 2ND PLACE</span>
+        </div>
+        <div class="podium-body">
+          <p class="podium-date">22 APR 2026 · SIES</p>
+          <h3>PIXELS UI/UX 2026</h3>
+          <p class="podium-desc">2nd of 30 in a 2-hour solo design sprint — an emergency-response app UI built from scratch.</p>
+          <div class="podium-tags"><span>Hackathon</span><span>UI/UX</span><span>Solo</span></div>
+        </div>
+      </article>
+
+      <article class="podium-card rank-2">
+        <div class="podium-photo">
+          <img src="assets/Ideathon26.webp" alt="Ideathon 2026" loading="lazy" />
+          <span class="podium-rank">🥈 2ND PRIZE</span>
+        </div>
+        <div class="podium-body">
+          <p class="podium-date">19 APR 2026 · FR. AGNEL</p>
+          <h3>IDEATHON 2026</h3>
+          <p class="podium-desc">2nd prize (₹1K) for a sustainability-focused solution at a project showcase competition.</p>
+          <div class="podium-tags"><span>Showcase</span><span>Hardware</span><span>Sustainable</span></div>
+        </div>
+      </article>
+
+    </div>
+
+    <h3 class="exp-group-title"><span>🗂</span> The Archive <span class="arch-count" id="archCount">— SHOWING 7 OF 7</span></h3>
+
+    <div class="arch-filters">
+      <button class="arch-filter-btn active" data-filter="all" type="button">ALL <b>7</b></button>
+      <button class="arch-filter-btn" data-filter="hackathon" type="button">HACKATHONS <b>5</b></button>
+      <button class="arch-filter-btn" data-filter="contest" type="button">COMPETITIONS <b>2</b></button>
+    </div>
+
+    <div class="arch-list">
+
+      <div class="arch-row" data-cat="hackathon">
+        <img class="arch-thumb" src="assets/HackMatrix.webp" alt="HackMatrix 2026" loading="lazy" />
+        <div class="arch-main">
+          <div class="arch-top">
+            <span class="arch-date">9 AUG 2026</span>
+          </div>
+          <h3>HACKMATRIX IEEE 2026</h3>
+          <p class="arch-place">MIT GWALIOR</p>
+          <p class="arch-desc">Intense 24-hr hackathon — a healthcare app for rural India, shaped with input from real doctors.</p>
+          <div class="arch-tags"><span>Hackathon</span><span>HealthCare</span><span>AI/ML</span></div>
+        </div>
+      </div>
+
+      <div class="arch-row" data-cat="hackathon">
+        <img class="arch-thumb" src="assets/Mircrosoft26.webp" alt="Microsoft x Shikunj Hackathon" loading="lazy" />
+        <div class="arch-main">
+          <div class="arch-top">
+            <span class="arch-date">1–2 MAY 2026</span>
+            <span class="arch-badge">TOP 10 · 500+ TEAMS</span>
+          </div>
+          <h3>MICROSOFT X SHIKUNJ AGENTIC AI HACKATHON</h3>
+          <p class="arch-place">JIT INDORE</p>
+          <p class="arch-desc">30-hour hackathon with a team of 4 — a cybersecurity awareness platform. Top 10 of 500+ teams, qualified for the pitching round.</p>
+          <div class="arch-tags"><span>Hackathon</span><span>Agentic AI</span><span>Microsoft</span></div>
+        </div>
+      </div>
+
+      <div class="arch-row" data-cat="contest">
+        <img class="arch-thumb" src="assets/SDI.webp" alt="Solar Decathlon India 2026" loading="lazy" />
+        <div class="arch-main">
+          <div class="arch-top">
+            <span class="arch-date">NOV 25 – JUN 26</span>
+            <span class="arch-badge">₹25K GRANT</span>
+          </div>
+          <h3>SOLAR DECATHLON INDIA (SDI)</h3>
+          <p class="arch-place">RESIDENTIAL COOLING RETROFIT · TEAM OF 13</p>
+          <p class="arch-desc">Cleared D1 and qualified for D2 — a compact thermoelectric cooling & air purification system.</p>
+          <div class="arch-tags"><span>Competition</span><span>SDI</span><span>Sustainable</span></div>
+        </div>
+      </div>
+
+      <div class="arch-row" data-cat="hackathon">
+        <img class="arch-thumb" src="assets/Hackfusion26.webp" alt="HackFusion 2026" loading="lazy" />
+        <div class="arch-main">
+          <div class="arch-top">
+            <span class="arch-date">8 FEB 2026</span>
+            <span class="arch-badge">TOP TEAMS</span>
+          </div>
+          <h3>HACKFUSION 2026</h3>
+          <p class="arch-place">SPIT X UMIT</p>
+          <p class="arch-desc">Built SiteOps — smart construction-site management with geofencing, face recognition and wage tracking.</p>
+          <div class="arch-tags"><span>Hackathon</span><span>SiteOps</span><span>IoT</span></div>
+        </div>
+      </div>
+
+      <div class="arch-row" data-cat="hackathon">
+        <img class="arch-thumb" src="assets/Technova26.webp" alt="Technova 2026" loading="lazy" />
+        <div class="arch-main">
+          <div class="arch-top">
+            <span class="arch-date">17 JAN 2026</span>
+          </div>
+          <h3>TECHNOVA 2026</h3>
+          <p class="arch-place">ST XAVIER'S TECHNICAL INSTITUTE</p>
+          <p class="arch-desc">24-hour hackathon — a women's-safety SoS app prototype. First ever app build.</p>
+          <div class="arch-tags"><span>Hackathon</span><span>Women's Safety</span><span>App</span></div>
+        </div>
+      </div>
+
+      <div class="arch-row" data-cat="contest">
+        <img class="arch-thumb" src="assets/Avhishkar25.webp" alt="Avhishkar 2025" loading="lazy" />
+        <div class="arch-main">
+          <div class="arch-top">
+            <span class="arch-date">9 DEC 2025</span>
+            <span class="arch-badge">PITCHING ROUND</span>
+          </div>
+          <h3>AVHISHKAR 2025</h3>
+          <p class="arch-place">A. P. SHAH INSTITUTE OF TECHNOLOGY</p>
+          <p class="arch-desc">Gamified-AI platform for sustainable farming (Agriculture & Animal Husbandry). Selected to pitch to judges.</p>
+          <div class="arch-tags"><span>Showcase</span><span>Sustainable</span><span>AI</span></div>
+        </div>
+      </div>
+
+      <div class="arch-row" data-cat="hackathon">
+        <img class="arch-thumb" src="assets/SIH25-26.webp" alt="Smart India Hackathon 2025" loading="lazy" />
+        <div class="arch-main">
+          <div class="arch-top">
+            <span class="arch-date">28 SEPT 2025</span>
+          </div>
+          <h3>SMART INDIA HACKATHON (SIH) 2025</h3>
+          <p class="arch-desc">Prototype — a gamified AI platform promoting sustainable farming practices across India.</p>
+          <div class="arch-tags"><span>Hackathon</span><span>Sustainable</span><span>AI</span></div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="orange-marquee">
+    <div class="marquee-track">
+      Ahh Achievements !&nbsp;&nbsp;&nbsp; Ahh Achievements !&nbsp;&nbsp;&nbsp; Ahh Achievements 
+      !&nbsp;&nbsp;&nbsp;
+      Ahh Achievements !&nbsp;&nbsp;&nbsp; Ahh Achievements !&nbsp;&nbsp;&nbsp; Ahh Achievements 
+      !&nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+
+  <!-- MILESTONES SECTION — PROOF OF WORK -->
+  <section class="milestones-new-section" id="milestones">
+
+    <h2 class="milestones-new-heading">
+      PROOF OF WORK
+    </h2>
+    <p class="proof-sub">NUMBERS, LEADERSHIP & PODIUMS.</p>
+
+    <!-- IMPACT BAND -->
+    <div class="impact-band">
+
+      <div class="impact-tile">
+        <h3><span class="count" data-count="5">0</span></h3>
+        <p>PODIUM FINISHES</p>
+      </div>
+
+      <div class="impact-tile">
+        <h3><span class="count" data-count="26" data-prefix="₹" data-suffix="K+">0</span></h3>
+        <p>GRANTS & PRIZE MONEY</p>
+      </div>
+
+      <div class="impact-tile">
+        <h3><span class="count" data-count="500" data-suffix="+">0</span></h3>
+        <p>TEAMS COMPETED AGAINST</p>
+      </div>
+
+      <div class="impact-tile">
+        <h3><span class="count" data-count="13">0</span></h3>
+        <p>LARGEST TEAM BUILT WITH</p>
+      </div>
+
+    </div>
+
+    <!-- LEADERSHIP SPOTLIGHT -->
+    <h3 class="proof-group-title"><span>★</span> LEADERSHIP</h3>
+
+    <article class="leader-spotlight">
+      <div class="leader-photo">
+        <img src="assets/IUCEEaward26.webp" alt="Best Student Chapter Award" loading="lazy" />
+        <span class="leader-seal">★ NATIONAL STAGE · BANGALORE</span>
+      </div>
+
+      <div class="leader-body">
+        <p class="leader-eyebrow">LEADERSHIP · COMMUNITY</p>
+
+        <h3>BEST STUDENT CHAPTER AWARD</h3>
+
+        <div class="leader-meta">
+          <span>🏢 ICTIEE 2026</span>
+          <span>📍 BANGALORE</span>
+          <span>🗓 JAN 2026</span>
+        </div>
+
+        <p class="leader-desc">
+          REPRESENTED SAKEC IUCEE STUDENT CHAPTER AS A STUDENT OFFICER,
+          LEADING INITIATIVES THAT SIGNIFICANTLY ENHANCED STUDENT ENGAGEMENT
+          AND TECHNICAL EXCELLENCE.
+        </p>
+
+        <div class="leader-tags">
+          <span>Leadership</span>
+          <span>Community</span>
+          <span>Student Officer</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- WALL OF FAME -->
+    <h3 class="proof-group-title"><span>🏆</span> WALL OF FAME</h3>
+
+    <div class="fame-marquee">
+      <div class="fame-track">
+
+        <div class="fame-card">
+          <span class="fame-medal">🏆</span>
+          <div><h4>EUREKA 2026</h4><p>1ST PRIZE · SAKEC</p></div>
+        </div>
+
+        <div class="fame-card">
+          <span class="fame-medal">🏆</span>
+          <div><h4>TANTRAVIHAR 2026</h4><p>1ST PRIZE · VIT</p></div>
+        </div>
+
+        <div class="fame-card">
+          <span class="fame-medal">🥈</span>
+          <div><h4>AETHER HACKCONQUEST</h4><p>RUNNER-UP · TCET</p></div>
+        </div>
+
+        <div class="fame-card">
+          <span class="fame-medal">🥈</span>
+          <div><h4>PIXELS UI/UX 2026</h4><p>2ND OF 30 · SIES</p></div>
+        </div>
+
+        <div class="fame-card">
+          <span class="fame-medal">🥈</span>
+          <div><h4>IDEATHON 2026</h4><p>2ND PRIZE · FR. AGNEL</p></div>
+        </div>
+
+        <div class="fame-card" aria-hidden="true">
+          <span class="fame-medal">🏆</span>
+          <div><h4>EUREKA 2026</h4><p>1ST PRIZE · SAKEC</p></div>
+        </div>
+
+        <div class="fame-card" aria-hidden="true">
+          <span class="fame-medal">🏆</span>
+          <div><h4>TANTRAVIHAR 2026</h4><p>1ST PRIZE · VIT</p></div>
+        </div>
+
+        <div class="fame-card" aria-hidden="true">
+          <span class="fame-medal">🥈</span>
+          <div><h4>AETHER HACKCONQUEST</h4><p>RUNNER-UP · TCET</p></div>
+        </div>
+
+        <div class="fame-card" aria-hidden="true">
+          <span class="fame-medal">🥈</span>
+          <div><h4>PIXELS UI/UX 2026</h4><p>2ND OF 30 · SIES</p></div>
+        </div>
+
+        <div class="fame-card" aria-hidden="true">
+          <span class="fame-medal">🥈</span>
+          <div><h4>IDEATHON 2026</h4><p>2ND PRIZE · FR. AGNEL</p></div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <div class="orange-marquee">
+    <div class="marquee-track">
+      Let's Connect !&nbsp;&nbsp;&nbsp; Let's Connect !&nbsp;&nbsp;&nbsp; Let's Connect 
+      !&nbsp;&nbsp;&nbsp;
+      Let's Connect !&nbsp;&nbsp;&nbsp; Let's Connect !&nbsp;&nbsp;&nbsp; Let's Connect
+      !&nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section class="final-contact-section" id="contact">
+
+    <div class="contact-top-bar">
+      <p><span></span> AVAILABLE FOR FREELANCING</p>
+
+      <a href="#home" class="back-top-btn">
+        BACK TO TOP <span>↑</span>
+      </a>
+    </div>
+
+    <div class="final-contact-content">
+
+      <div class="final-contact-left">
+        <h2>
+          Let's Connect<br>
+          And Build<br>
+          Something<br>
+          Extraordinary
+        </h2>
+
+        <p>Let's make an Impact together ...</p>
+      </div>
+
+      <div class="final-contact-right">
+
+        <div class="contact-profile-row">
+          <img loading="lazy" src="assets/profile1.webp" alt="Harsh Gahankar">
+
+          <div>
+            <h3>Harsh Gahankar</h3>
+            <p>Software Engineer &amp;<br>UI/UX Creator</p>
+
+            <div class="contact-socials">
+
+              <!-- GitHub -->
+              <a href="https://github.com/harshgahankar" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 0.5C5.65 0.5 0.5 5.65 0.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.02c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.04 1.77 2.72 1.26 3.38.96.11-.75.41-1.26.74-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18A11.1 11.1 0 0 1 12 5.98c.98 0 1.97.13 2.89.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.42.36.79 1.08.79 2.18v3.23c0 .31.21.68.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+                </svg>
+              </a>
+
+              <!-- LinkedIn -->
+              <a href="https://www.linkedin.com/in/harsh-gahankar-030814343/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.32 8.14h4.36V23H.32V8.14ZM7.7 8.14h4.18v2.03h.06c.58-1.1 2-2.26 4.12-2.26 4.41 0 5.22 2.9 5.22 6.67V23h-4.36v-7.48c0-1.78-.03-4.08-2.49-4.08-2.49 0-2.87 1.95-2.87 3.96V23H7.7V8.14Z" />
+                </svg>
+              </a>
+
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/harsh_gahankar/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7.5A4.5 4.5 0 1 1 12 16.5 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 12 14.5 2.5 2.5 0 0 0 12 9.5Zm5-2.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z" />
+                </svg>
+              </a>
+
+              <!-- LeetCode -->
+              <a href="https://leetcode.com/u/harsh_gahankar/" target="_blank" rel="noopener" title="LeetCode" aria-label="LeetCode">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z" />
+                </svg>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-email-block">
+          <p>Contact me</p>
+          <a href="mailto:harshhhgahankar@gmail.com">
+            harshhhgahankar@gmail.com
+          </a>
+        </div>
+
+        <p class="contact-small-text">
+          Got a vision? I design fast, think deeply, and<br>
+          build experiences that actually work.
+        </p>
+
+        <a href="mailto:harshhhgahankar@gmail.com" class="final-connect-btn">
+          Let’s Connect <span>→</span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

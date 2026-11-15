@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lost in space | Harsh Gahankar</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <style>
+    :root { --orange: #f97316; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #080808;
+      color: #f8f8f8;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      overflow: hidden;
+      padding: 24px;
+      text-align: center;
+    }
+    .stars {
+      position: fixed; inset: 0; pointer-events: none;
+      background-image:
+        radial-gradient(1.5px 1.5px at 12% 22%, #fff8, transparent),
+        radial-gradient(1px 1px at 78% 14%, #fff7, transparent),
+        radial-gradient(1.5px 1.5px at 64% 72%, #fff6, transparent),
+        radial-gradient(1px 1px at 28% 84%, #fff7, transparent),
+        radial-gradient(1px 1px at 90% 58%, #fff6, transparent),
+        radial-gradient(1.5px 1.5px at 44% 40%, #fff5, transparent);
+    }
+    .code {
+      font-size: clamp(120px, 32vw, 280px);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      background: linear-gradient(180deg, #ff8a3d, #f97316 55%, #7c2d12);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: float 5s ease-in-out infinite;
+    }
+    @keyframes float { 50% { transform: translateY(-12px); } }
+    h1 { margin-top: 18px; font-size: clamp(22px, 5vw, 32px); font-weight: 900; letter-spacing: 1px; }
+    p { margin: 12px auto 0; max-width: 420px; color: #b8b8b8; line-height: 1.6; }
+    .actions { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    a {
+      display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 22px;
+      border-radius: 999px; font-weight: 800; font-size: 13px; letter-spacing: 1.2px;
+      text-decoration: none; text-transform: uppercase; transition: transform .25s ease;
+    }
+    a:hover { transform: translateY(-2px); }
+    a:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+    .main { background: var(--orange); color: #111; }
+    .ghost { color: #fff; border: 1.5px solid rgba(255,255,255,.5); }
+    @media (prefers-reduced-motion: reduce) { .code { animation: none; } }
+  </style>
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <main>
+    <div class="code" aria-hidden="true">404</div>
+    <h1>This page drifted out of orbit.</h1>
+    <p>The link may be broken or the page may have moved. Let's get you back to something worth seeing.</p>
+    <div class="actions">
+      <a class="main" href="/">Back home →</a>
+      <a class="ghost" href="/#projects">See projects</a>
+    </div>
+  </main>
+</body>
+</html>

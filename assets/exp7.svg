@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="650" viewBox="0 0 900 650">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#121212"/>
+      <stop offset="100%" stop-color="#d85b00"/>
+    </linearGradient>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.16"/>
+      </feComponentTransfer>
+      <feBlend mode="overlay" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect width="900" height="650" fill="url(#g)"/>
+  <rect width="900" height="650" fill="#000" opacity="0.20"/>
+  <circle cx="740" cy="120" r="95" fill="#fff" opacity="0.11"/>
+  <circle cx="160" cy="540" r="130" fill="#fff" opacity="0.08"/>
+  <rect x="52" y="470" width="790" height="86" rx="18" fill="#000" opacity="0.35"/>
+  <text x="450" y="525" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="900" letter-spacing="3">TECHNOVA</text>
+</svg>
