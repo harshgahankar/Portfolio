@@ -695,8 +695,8 @@ updateSkills("software");
       tags: ["AI/ML", "Vector Search", "Recruitment"],
       img: "assets/SkillOrbit.webp",
       alt: "SkillOrbit — AI recruitment platform preview",
-      live: "https://skill-oribit-2.vercel.app/",
-      repo: "https://github.com/hansagusaiwal/SkillOrbit",
+      live: "https://skilloribit.vercel.app/",
+      repo: "https://github.com/harshgahankar/skilloribit",
       status: "live", context: null,
       features: [
         "Ranks candidates against job descriptions",
