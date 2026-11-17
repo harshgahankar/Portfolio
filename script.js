@@ -765,11 +765,26 @@ updateSkills("software");
         "YOLO + OpenCV incident classification",
         "Tested on real datasets"
       ]
+    },
+    {
+      name: "Tryvelle", cat: "VIRTUAL TRY-ON STOREFRONT",
+      desc: "Fashion storefront where you try clothes on with your live camera before buying",
+      tags: ["Web", "AR Try-On", "E-commerce"],
+      img: "assets/tryvelle.jpg", plain: true,
+      alt: "Tryvelle — virtual try-on fashion storefront preview",
+      live: "https://tryvelle.vercel.app/",
+      repo: "https://github.com/harshgahankar/Tryvelle",
+      status: "live", context: null,
+      features: [
+        "Live camera try-on that runs on your device — nothing uploaded",
+        "Size chart on every style",
+        "Bag saved on the device · live on Vercel"
+      ]
     }
   ];
 
   /* Cartridge accent colours, by project order. */
-  var COLORS = ["#FF7A18", "#2dd4bf", "#facc15", "#a78bfa", "#f87171", "#60a5fa", "#4ade80", "#f472b6"];
+  var COLORS = ["#FF7A18", "#2dd4bf", "#facc15", "#a78bfa", "#f87171", "#60a5fa", "#4ade80", "#f472b6", "#fb923c"];
 
   var shelf = document.getElementById("cartShelf");
   var consoleEl = document.getElementById("cartConsole");
@@ -901,7 +916,7 @@ updateSkills("software");
     }
     var flag = p.status === "soon" ? '<span class="cart-ribbon soon">COMING SOON</span>'
       : p.status === "code" ? '<span class="cart-ribbon code">DEV KIT</span>' : "";
-    return '<span class="cart" style="--c:' + COLORS[i % COLORS.length] + '">'
+    return '<span class="cart' + (p.plain ? " plain" : "") + '" style="--c:' + COLORS[i % COLORS.length] + '">'
       + '<span class="cart-grip"></span>'
       + '<span class="cart-label"><img src="' + p.img + '" alt="" draggable="false" />'
       + '<span class="cart-label-name">' + p.name + "</span></span>"
@@ -963,6 +978,7 @@ updateSkills("software");
 
   /* --- shelf --- */
   shelf.innerHTML = PROJECTS.map(pickHTML).join("");
+  shelf.style.setProperty("--n", N);
   var picks = shelf.querySelectorAll(".cart-pick");
 
   function unlockSecret(silent) {
@@ -970,7 +986,7 @@ updateSkills("software");
     unlocked = true;
     PROJECTS.push(SECRET);
     N = PROJECTS.length;
-    shelf.classList.add("has-secret");
+    shelf.style.setProperty("--n", N);
     shelf.insertAdjacentHTML("beforeend", pickHTML(SECRET, N - 1));
     picks = shelf.querySelectorAll(".cart-pick");
     countEl.innerHTML = countEl.innerHTML.replace(/\/ \d+/, "/ " + pad(N));
@@ -1033,7 +1049,7 @@ updateSkills("software");
     hudDesc.textContent = p.desc;
     hudStatus.innerHTML = statusPill(p);
     point(press, dest(p));
-    artEl.classList.toggle("plain", !!p.secret);
+    artEl.classList.toggle("plain", !!(p.secret || p.plain));
     screenBg.src = p.img;
     screenImg.src = p.img;
     screenImg.alt = p.alt;

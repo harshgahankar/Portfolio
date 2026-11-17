@@ -4998,7 +4998,7 @@ a {
 
 .cart-shelf {
   display: grid;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--n, 9), minmax(0, 1fr));
   gap: clamp(10px, 1.4vw, 22px);
   justify-items: center;
   align-items: end;
@@ -5815,7 +5815,8 @@ a {
 
 .cart-toast.show { opacity: 1; translate: 0 0; }
 
-.cart-shelf.has-secret { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+/* screenshots (not padded art): plain cover crop on the cartridge label */
+.cart.plain .cart-label img { width: 100%; margin-left: 0; object-position: top center; }
 
 .cart.secret {
   --c: #f5f5f5;
